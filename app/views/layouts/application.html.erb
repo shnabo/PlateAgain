@@ -9,6 +9,17 @@
   </head>
 
   <body>
+
+    <header>
+      <h1><%= link_to 'PlateAgain', root_url %></h1>
+      <nav>
+      </nav>
+    </header>
+
     <%= yield %>
+
+    <footer>
+      &copy; 2017 Team SASPS | <%= link_to 'About PlateAgain', about_path %>
+    </footer>
   </body>
 </html>
