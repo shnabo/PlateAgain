@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # static pages
+  root 'pages#home'
+  get 'about', to: 'pages#about'
+  get 'about_providers', to: 'pages#about_providers'
+  get 'about_acceptors', to: 'pages#about_acceptors'
+
   resources :listings
   get 'listings/new' => 'listings#new'
   root 'listings#new'
