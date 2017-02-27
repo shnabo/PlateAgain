@@ -6,6 +6,5 @@ Rails.application.routes.draw do
   get 'about_acceptors', to: 'pages#about_acceptors'
 
   resources :listings
-  get 'listings/new' => 'listings#new'
-  root 'listings#new'
+  resources :users
 end
