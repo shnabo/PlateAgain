@@ -5,5 +5,6 @@ get "users/show"
 get "users/edit"
 get "users/new"
 
-
+post "user/create"
+post "user/update"
 end
