@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  patch '/logout', to: 'sessions#destroy'
+
+
   # static pages
   root 'pages#home'
   get 'about', to: 'pages#about'
