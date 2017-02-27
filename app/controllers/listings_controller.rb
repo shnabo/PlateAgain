@@ -1,2 +1,2 @@
-class ListingController < ApplicationController
+class ListingsController < ApplicationController
 end
