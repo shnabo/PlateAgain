@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   get 'about_providers', to: 'pages#about_providers'
   get 'about_acceptors', to: 'pages#about_acceptors'
 
+
+  get 'providers', to: 'users#providers'
+  get 'acceptors', to: 'users#acceptors'
+
   resources :users do
     resources :listings
   end
