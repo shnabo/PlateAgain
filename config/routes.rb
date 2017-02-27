@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'about_providers', to: 'pages#about_providers'
   get 'about_acceptors', to: 'pages#about_acceptors'
 
-  resources :listings
-  resources :users
+  resources :users do
+    resources :listings
+  end
 end
