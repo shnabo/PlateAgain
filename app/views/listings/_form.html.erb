@@ -1,7 +1,6 @@
+<%= form_for [@user, @listing] do |l| %>
 
-
- <%= form_for @listing do |l| %>
- <% if @listing.errors.any? %>
+  <% if @listing.errors.any? %>
    <div id="error_description">
      <h2> <%= pluralize(@listing.errors.count, "error!") %> Your listing did not save </h2>
      <ul>
@@ -25,22 +24,15 @@
      <%= l.text_field :perishable %>
    </div>
    <div class="field">
-     <%= l.label :quantity %><br>
-     <%= l.text_field :quantity %>
-   </div>
-   <div class="field">
-     <%= l.label :user_id %><br>
-     <%= l.number_field :user_id %>
-   </div>
-   <div class="field">
      <%= l.label :expiry_date %><br>
      <%= l.date_select :expiry_date %>
    </div>
    <div class="field">
      <%= l.label :available_until %><br>
-     <%= l.date_select :expiry_date %>
+     <%= l.date_select :available_until %>
    </div>
    <div class="button">
      <%= l.submit %>
    </div>
-   <% end %>
+
+<% end %>
