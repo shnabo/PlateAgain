@@ -1,10 +1,5 @@
 class UsersController < ApplicationController
 
-  before_action :load_user
-  # def index
-  #   @users = User.all
-  # end
-
   def providers
     @users = User.where('is_provider = ?', true)
   end
