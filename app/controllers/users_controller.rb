@@ -41,9 +41,11 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    load_user
+    @user = load_user
   end
-
+ def index
+   @user = load_user
+ end
   private
 
   def load_user

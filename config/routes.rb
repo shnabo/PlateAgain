@@ -10,11 +10,14 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   get 'about_providers', to: 'pages#about_providers'
   get 'about_acceptors', to: 'pages#about_acceptors'
-  get '/users/:id/listings', to: 'listings#index'
+  get '/users/:id/listings', to: 'listings#mylistings'
+  get '/listings', to: 'listings#index'
+  get '/listings/new', to: 'listings#new'
 
   get 'providers', to: 'users#providers'
   get 'acceptors', to: 'users#acceptors'
   get '/users/:id/dashboard', to: 'users#dashboard', as: 'dashboard'
+
 
   resources :users do
     resources :listings
