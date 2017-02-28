@@ -14,9 +14,12 @@ Rails.application.routes.draw do
 
   get 'providers', to: 'users#providers'
   get 'acceptors', to: 'users#acceptors'
+  get '/users/:id/dashboard', to: 'users#dashboard', as: 'dashboard'
 
   resources :users do
     resources :listings
   end
+
   resources :sessions, only: [:new, :create, :destroy]
+
 end

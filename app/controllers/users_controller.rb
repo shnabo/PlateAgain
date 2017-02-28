@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+  before_action :load_user
   # def index
   #   @users = User.all
   # end
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    load_user
   end
 
   def new
@@ -24,18 +25,18 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to users_url
+      redirect_to user_show_url
     else
       render :new
     end
   end
 
   def edit
-    @user = User.find(params[:id])
+    load_user
   end
 
   def update
-    @user = User.find(params[:id])
+    load_user
 
     if @user.update_attributes(user_params)
       redirect_to user_show_url(@user)
@@ -44,9 +45,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def dashboard
+    load_user
+  end
+
   private
 
+  def load_user
+    @user = User.find(params[:id])
+  end
+
   def user_params
-    params.require(:user).permit(:name, :email, :address, :phone, :description, :homepage, :photo, :registration, :created_at, :updated_at)
+    params.require(:user).permit(:name, :email, :address, :phone, :description, :homepage, :photo, :registration)
   end
 end
