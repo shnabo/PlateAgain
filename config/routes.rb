@@ -7,12 +7,11 @@ Rails.application.routes.draw do
 
   # static pages
   root 'pages#home'
+
   get 'about', to: 'pages#about'
   get 'about_providers', to: 'pages#about_providers'
   get 'about_acceptors', to: 'pages#about_acceptors'
-  get '/users/:id/listings', to: 'listings#mylistings'
-  get '/listings', to: 'listings#index'
-  get '/listings/new', to: 'listings#new'
+  get 'listings', to: 'listings#all'
 
   get 'providers', to: 'users#providers'
   get 'acceptors', to: 'users#acceptors'
