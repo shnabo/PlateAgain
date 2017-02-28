@@ -46,7 +46,8 @@ class UsersController < ApplicationController
  def index
    @user = load_user
  end
-  private
+
+     private
 
   def load_user
     @user = User.find(params[:id])

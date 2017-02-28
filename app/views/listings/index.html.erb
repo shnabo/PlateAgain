@@ -2,6 +2,6 @@
 
 <ul>
   <% @listings.each do |listing| %>
-    <li><%= link_to listing.item_name, user_listing_path(@user, listing) %></li>
+    <li><%= link_to listing.item_name, listings_path(@user, listing) %></li>
   <% end %>
 </ul>

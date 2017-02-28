@@ -1,14 +1,20 @@
 class ListingsController < ApplicationController
 
-  before_action :load_user
 
-  def all
+
+  def all_listings
     @listings = Listing.all
+
   end
 
   def index
-    @listings = @user.listings
-  end
+      if params[:user_id]
+          @user = User.find(params[:user_id])
+          @listings = @user.listings
+      else
+        @listings = Listing.all 
+      end
+    end
 
   def show
     find_listing
