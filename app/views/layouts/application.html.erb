@@ -15,9 +15,13 @@
       <nav>
         <%= link_to 'Providers', providers_path %>
         <%= link_to 'Acceptors', acceptors_path %>
-        <%= link_to 'My Listings', 'index#listings'%>
-        <%= link_to 'Create Listing', 'new#listings' %>
+        <%= link_to 'Food Listings', listings_path %>
       </nav>
+
+      <div class="user-menu">
+        <%= link_to 'My Listings', 'index#listings' %>
+        <%= link_to 'Create Listing', 'new#listings' %>
+      </div>
     </header>
 
     <%= yield %>
