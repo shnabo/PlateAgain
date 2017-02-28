@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    load_user
+    @user = load_user
   end
 
   def new
@@ -27,11 +27,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    load_user
+    @user = load_user
   end
 
   def update
-    load_user
+    @user = load_user
 
     if @user.update_attributes(user_params)
       redirect_to user_show_url(@user)

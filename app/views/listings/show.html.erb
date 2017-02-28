@@ -1,0 +1,14 @@
+<h1> Listings Show Page </h1>
+
+<% @user.listings.each do |listing| %>
+<div>
+  <%= "Item Name:" @listing.name %>
+  <%= "Description:"@listing.description %>
+  <%= "Quantity:" @listing.quantity %>
+  <%= "Perisable:" @listing.perishable %>
+  <%= "Expiry Date:" @listing.expiry_date %>
+  <%= "Available Until:" @listing.available_until %>
+  <%= "Contact Person: #{@listing.contact_name}" %>
+  <%= "Contact Phone Number: #{@listing.contact_phone}" %>
+  <%= "Contact Email: #{@listing.contact_email}" %>
+  <%= @listing.picture %>
