@@ -1,3 +1,3 @@
 class User < ApplicationRecord
-  has_many :listings
+  authenticates_with_sorcery!
 end
