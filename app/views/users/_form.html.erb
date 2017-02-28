@@ -30,9 +30,14 @@
     <%= f.text_field :registration %>
   </p>
 
-  <p class= "password">
-    <%= label_tag :password %><br  />
-    <%= password_field_tag :password %>
+  <p class="field">
+     <%= f.label :password %><br />
+     <%= f.password_field :password %>
+  </p>
+
+  <p class="field">
+     <%= f.label :password_confirmation %><br />
+     <%= f.password_field :password_confirmation %>
   </p>
 
   <p class = "submit">
