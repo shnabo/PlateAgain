@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170227202516) do
+ActiveRecord::Schema.define(version: 20170227233516) do
 
   create_table "listings", force: :cascade do |t|
     t.string   "item_name"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20170227202516) do
     t.string   "registration"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.boolean  "is_provider"
   end
 
 end
