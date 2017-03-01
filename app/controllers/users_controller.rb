@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :ensure_logged_in, only: [:create, :destroy]
+  before_action :ensure_logged_in, only: [:update, :destroy]
 
   def index
     redirect_to root_url
@@ -58,7 +58,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :address, :phone, :description, :homepage, :photo, :registration)
+    params.require(:user).permit(:name, :email, :address, :phone, :description, :homepage, :photo, :registration, :password, :password_confirmation)
   end
 
 
