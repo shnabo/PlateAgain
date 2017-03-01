@@ -15,12 +15,19 @@
       <nav>
         <%= link_to 'Providers', providers_path %>
         <%= link_to 'Acceptors', acceptors_path %>
-        <%= link_to 'Food Listings', listings_path %>
+        <% if current_user %>
+          <%= link_to 'Food Listings', listings_path %>
+        <% end %>
       </nav>
 
       <div class="user-menu">
-        <%= link_to 'My Listings', listings_path %>
-        <%= link_to 'Create Listing', new_listing_path %>
+        <% if current_user %>
+          <%= link_to 'My Dashboard', dashboard_path(current_user.id) %>
+          <%= link_to 'My Listings', listings_path %>
+          <%= link_to 'Create Listing', new_listing_path %>
+        <% else %>
+          <%= link_to 'Log in', login_path %> or <%= link_to 'Sign up', new_user_path %>
+        <% end %>
       </div>
     </header>
 
