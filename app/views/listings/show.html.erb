@@ -1,0 +1,14 @@
+<h1> <%= @listing.item_name %></h1>
+
+<% if @listing.picture %>
+  <%= image_tag @listing.picture %>
+<% end %>
+
+<p>Quantity: <%= @listing.quantity %></p>
+<p>Perishable? <%= @listing.perishable %></p>
+<p>Expiry date: <%= @listing.expiry_date %></p>
+<p>Contact person: <%= @listing.contact_name %></p>
+<p>Phone: <%= @listing.contact_phone %></p>
+<p>Email: <%= @listing.contact_email %></p>
+
+<h2>This food will be available on PlateAgain until <%= @listing.available_until %></h2>

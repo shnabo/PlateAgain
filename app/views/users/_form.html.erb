@@ -1,0 +1,50 @@
+
+<%= form_tag do %>
+
+  <p class = "name">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p class= "field">
+    <%= f.label :email %><br  />
+    <%= f.text_field :email %>
+  </p>
+
+  <p class= "field">
+    <%= f.label :address %><br  />
+    <%= f.text_field :address %>
+  </p>
+
+  <p class= "field">
+    <%= f.label :phone %><br  />
+    <%= f.text_field :phone %>
+  </p>
+
+  <p class= "field">
+    <%= f.label :description %><br  />
+    <%= f.text_field :description %>
+  </p>
+
+  <p class= "field">
+    <%= f.label :registration %><br  />
+    <%= f.text_field :registration %>
+  </p>
+
+  <p class="field">
+     <%= f.label :password %><br />
+     <%= f.password_field :password %>
+  </p>
+
+  <p class="field">
+     <%= f.label :password_confirmation %><br />
+     <%= f.password_field :password_confirmation %>
+  </p>
+
+  <p class = "submit">
+    <%= f.submit "Save" %>
+  </p>
+
+
+
+<% end %>
