@@ -1,20 +1,25 @@
 class SessionsController < ApplicationController
   def new
+    @user = User.new
   end
 
   def create
-    user = User.find_by(email: params[:email])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to show_url, notice: "Logged In!"
-   else
-     render :new
-   end
-end
+    if @user = login(params[:email], params[:password])
+      redirect_back_or_to(:users, notice: 'Login successful')
+    else
+      flash.now[:alert] = 'Login failed'
+      render action: 'new'
+    end
+  end
 
+  def destroy
+  logout
+  redirect_to(:users, notice: 'Logged out!')
+  end
 
-def user_params
+  private
+  def user_params
   params.require(:user).permit(:email, :password, :password_confirmation)
 
-end
+  end
 end
