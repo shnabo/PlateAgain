@@ -22,7 +22,7 @@ class ListingsController < ApplicationController
     @listing.user = @user
 
     if @listing.save
-      redirect_to dashboard_path(@user)
+      redirect_to dashboard_path(current_user.id)
     else
       render :new
     end
@@ -36,7 +36,7 @@ class ListingsController < ApplicationController
     find_listing
 
     if @listing.update(listing_params)
-      redirect_to dashboard_path(@user)
+      redirect_to dashboard_path(current_user.id)
     else
       render :edit
     end
