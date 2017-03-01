@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
 
   before_action :ensure_logged_in, only: [:create, :destroy]
-  # def index
-  #   @users = User.all
-  # end
 
+  def index
+    redirect_to root_url
+  end
 
   def providers
     @users = User.where('is_provider = ?', true)
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to user_show_url
+      redirect_to user_path(@user)
     else
       render :new
     end
@@ -49,11 +49,9 @@ class UsersController < ApplicationController
   def dashboard
     @user = load_user
   end
- def index
-   @user = load_user
- end
 
-     private
+
+  private
 
   def load_user
     @user = User.find(params[:id])
@@ -62,4 +60,6 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :address, :phone, :description, :homepage, :photo, :registration)
   end
+
+
 end
