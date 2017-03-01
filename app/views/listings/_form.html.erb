@@ -1,15 +1,5 @@
 <%= form_for [@user, @listing] do |l| %>
-
-  <% if @listing.errors.any? %>
-   <div id="error_description">
-     <h2> <%= pluralize(@listing.errors.count, "error!") %> Your listing did not save </h2>
-     <ul>
-       <% @listing.errors.full_messages.each do |msg| %>
-         <li> <%= msg %> </li>
-       <% end %>
-     <ul>
-   </div>
-  <% end %>
+  <%= render "shared/errors", object: @listing %>
 
    <div class="field">
      <%= l.label :item_name %><br>

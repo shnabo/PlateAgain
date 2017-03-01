@@ -1,32 +1,32 @@
+<%= form_for @user do |f| %>
+  <%= render "shared/errors", object: @user %>
 
-<%= form_tag do %>
-
-  <p class = "name">
+  <p class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </p>
 
-  <p class= "field">
+  <p class="field">
     <%= f.label :email %><br  />
     <%= f.text_field :email %>
   </p>
 
-  <p class= "field">
+  <p class="field">
     <%= f.label :address %><br  />
     <%= f.text_field :address %>
   </p>
 
-  <p class= "field">
+  <p class="field">
     <%= f.label :phone %><br  />
     <%= f.text_field :phone %>
   </p>
 
-  <p class= "field">
+  <p class="field">
     <%= f.label :description %><br  />
     <%= f.text_field :description %>
   </p>
 
-  <p class= "field">
+  <p class="field">
     <%= f.label :registration %><br  />
     <%= f.text_field :registration %>
   </p>
@@ -41,7 +41,7 @@
      <%= f.password_field :password_confirmation %>
   </p>
 
-  <p class = "submit">
+  <p class="submit">
     <%= f.submit "Save" %>
   </p>
 
