@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+  before_action :ensure_logged_in
 
   def index
     if params[:user_id]
