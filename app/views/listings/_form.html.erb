@@ -10,8 +10,10 @@
      <%= l.text_field :quantity %>
    </div>
    <div class="field">
-     <%= l.label :perishable %><br>
-     <%= l.text_field :perishable %>
+     <%= l.radio_button :perishable, :checked => false  %> Non Perishable
+   </div>
+   <div class="field">
+     <%= l.radio_button :perishable, :checked => true %> Perishable
    </div>
    <div class="field">
      <%= l.label :expiry_date %><br>

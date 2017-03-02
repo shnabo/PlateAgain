@@ -1,0 +1,5 @@
+<ul>
+  <% @listings.each do |listing| %>
+    <li><%= link_to listing.item_name, listings_path(listing) %></li>
+  <% end %>
+</ul>
