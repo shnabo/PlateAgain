@@ -1,12 +1,7 @@
 class ListingsController < ApplicationController
 
   def index
-    if params[:user_id]
-      @user = User.find(params[:user_id])
-      @listings = @user.listings
-    else
-      @listings = Listing.all
-    end
+    @listings = Listing.all
   end
 
   def show
