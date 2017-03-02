@@ -1,6 +1,6 @@
 <h1><%= @user.name %></h1>
 
-<% if @user.photo %>
+<% if @user.photo.present? %>
   <%= image_tag @user.photo.url %>
 <% end %>
 
