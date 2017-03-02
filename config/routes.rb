@@ -1,18 +1,11 @@
 Rails.application.routes.draw do
 
-
-  get '/login', to: 'sessions#new'
-  post '/login', to: 'sessions#create'
-  post '/logout', to: 'sessions#destroy'
-
-
   # static pages
   root 'pages#home'
 
   get 'about', to: 'pages#about'
   get 'about_providers', to: 'pages#about_providers'
   get 'about_acceptors', to: 'pages#about_acceptors'
-  # get 'listings', to: 'listings#all_listings'
 
   get 'providers', to: 'users#providers'
   get 'acceptors', to: 'users#acceptors'
@@ -20,6 +13,10 @@ Rails.application.routes.draw do
 
   resources :listings
   resources :users
+
   resources :sessions, only: [:new, :create, :destroy]
+  get 'login', to: 'sessions#new', as: 'login'
+  delete 'logout', to: 'sessions#destroy', as: 'logout'
+
 
 end
