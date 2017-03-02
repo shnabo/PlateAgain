@@ -1,12 +1,12 @@
 class ListingsController < ApplicationController
 
   def index
-    if params[:user_id]
-      @user = User.find(params[:user_id])
-      @listings = @user.listings
-    else
-      @listings = Listing.all
-    end
+      if params[:user_id]
+          @user = User.find(params[:user_id])
+          @listings = @user.listings
+      else
+        @listings = Listing.all
+      end
   end
 
   def show
@@ -22,7 +22,7 @@ class ListingsController < ApplicationController
     @listing.user = @user
 
     if @listing.save
-      redirect_to dashboard_path(current_user.id)
+      redirect_to dashboard_path(@user)
     else
       render :new
     end
@@ -36,7 +36,7 @@ class ListingsController < ApplicationController
     find_listing
 
     if @listing.update(listing_params)
-      redirect_to dashboard_path(current_user.id)
+      redirect_to dashboard_path(@user)
     else
       render :edit
     end

@@ -5,21 +5,29 @@ class Listing < ApplicationRecord
   validate :available_until
   validates_presence_of :item_name, :quantity, :perishable
 
-  def expiry_date_not_past
-    if start_date.present? && start_date < Date.today
-      errors.add(:expiry_date, "must be today's date")
+
+  # Enable image upload with Carrierwave
+  mount_uploader :photo, ImageUploader
+
+  validate :issue_expiry_date, :available_until_issue
+
+  def issue_expiry_date
+    if expiry_date.present? && expiry_date < Date.today
+      errors.add(:expiry_date, "Must be at least today's date")
     end
   end
 
-  def available_until_not_past
-    if expiry_date.present? && start_date < Date.today
-      errors.add(:expiry_date, "must be today's date")
+  def available_until_issue
+    if available_until.present? && available_until < DateTime.current
+      errors.add(:available_until, "Must be later than today")
+>>>>>>> a25ab586af4c685903eebad0417ed90369339572
     end
   end
 
-  def expiration_date_is_not_in_past
-    if available_until.present? && end_date < Date.today
-      errors.add(:available_until, "must be in the future")
-    end
-  end
+
+
+
+
+
+
 end

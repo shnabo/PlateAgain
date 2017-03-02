@@ -2,13 +2,32 @@
   <%= render "shared/errors", object: @user %>
 
   <p class="field">
+    <%= f.label :username %><br  />
+    <%= f.text_field :username %>
+  </p>
+  <p class="field">
+    <%= f.label :email %><br  />
+    <%= f.email_field :email %>
+  </p>
+
+  <p class="field">
+     <%= f.label :password %><br />
+     <%= f.password_field :password %>
+  </p>
+
+  <p class="field">
+     <%= f.label :password_confirmation %><br />
+     <%= f.password_field :password_confirmation %>
+  </p>
+
+  <p class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </p>
 
   <p class="field">
-    <%= f.label :email %><br  />
-    <%= f.text_field :email %>
+    <%= f.label :registration %><br  />
+    <%= f.text_field :registration %>
   </p>
 
   <p class="field">
@@ -27,18 +46,8 @@
   </p>
 
   <p class="field">
-    <%= f.label :registration %><br  />
-    <%= f.text_field :registration %>
-  </p>
-
-  <p class="field">
-     <%= f.label :password %><br />
-     <%= f.password_field :password %>
-  </p>
-
-  <p class="field">
-     <%= f.label :password_confirmation %><br />
-     <%= f.password_field :password_confirmation %>
+    <%= f.label :photo %><br  />
+    <%= f.file_field :photo %>
   </p>
 
   <p class="submit">

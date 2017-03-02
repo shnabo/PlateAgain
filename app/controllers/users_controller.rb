@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :ensure_logged_in, only: [:update, :destroy]
+  before_action :ensure_logged_in, only: [:dashboard, :edit, :update, :destroy]
 
   def index
     redirect_to root_url
@@ -26,8 +26,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to user_path(@user)
+      redirect_to dashboard_path, notice: "Registration successful!"
     else
+      flash.now[:alert] = "Registration failed."
       render :new
     end
   end
@@ -40,24 +41,15 @@ class UsersController < ApplicationController
     @user = load_user
 
     if @user.update_attributes(user_params)
-      redirect_to user_show_url(@user)
+      redirect_to dashboard_path, notice: "Profile updated!"
     else
+      flash.now[:alert] = "Profile update failed."
       render :edit
     end
-
-  end
-
-    # def providers
-    #   if @users = users.where()
-    # end
-    # def acceptors
-    # end
-    # This caused merge issue and we have it twice
-
   end
 
   def dashboard
-    @user = load_user
+    @user = current_user
   end
 
 

@@ -18,8 +18,16 @@
      <%= l.date_select :expiry_date %>
    </div>
    <div class="field">
+     <%= l.label :picture %><br>
+     <%= l.file_field :picture %>
+   </div>
+   <div class="field">
      <%= l.label :available_until %><br>
-     <%= l.date_select :available_until %>
+     <%= l.datetime_select :available_until %>
+   </div>
+   <div class="field">
+     <%= l.label :notes %><br>
+     <%= l.text_field :notes %>
    </div>
    <div class="button">
      <%= l.submit %>
