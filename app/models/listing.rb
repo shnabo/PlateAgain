@@ -2,6 +2,10 @@ class Listing < ApplicationRecord
   belongs_to :user
 
   validates_presence_of :item_name, :quantity, :perishable
+
+  # Enable image upload with Carrierwave
+  mount_uploader :photo, ImageUploader
+
   def does_not_start_in_past
     if start_date.present? && start_date < Date.today
       errors.add(:start_date, "must be today's date")
@@ -19,4 +23,5 @@ class Listing < ApplicationRecord
       errors.add(:end_date, "must be in the future")
     end
   end
+
 end
