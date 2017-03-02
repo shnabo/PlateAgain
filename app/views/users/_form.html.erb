@@ -24,7 +24,12 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </p>
-
+  <p class="field">
+    <%= f.radio_button :is_provider, :checked => true %> Donor
+  </p>
+  <p class="field">
+    <%= f.radio_button :is_provider, :checked => false %> Provider
+  </p>
   <p class="field">
     <%= f.label :registration %><br  />
     <%= f.text_field :registration %>
