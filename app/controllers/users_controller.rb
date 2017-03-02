@@ -44,16 +44,6 @@ class UsersController < ApplicationController
     else
       render :edit
     end
-
-  end
-
-    # def providers
-    #   if @users = users.where()
-    # end
-    # def acceptors
-    # end
-    # This caused merge issue and we have it twice
-
   end
 
   def dashboard
