@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170228233423) do
+ActiveRecord::Schema.define(version: 20170302200122) do
 
   create_table "listings", force: :cascade do |t|
     t.string   "item_name"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170228233423) do
     t.boolean  "is_provider"
     t.string   "crypted_password"
     t.string   "salt"
+    t.string   "username"
   end
 
 end
