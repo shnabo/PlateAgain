@@ -20,7 +20,7 @@ class Listing < ApplicationRecord
   def available_until_issue
     if available_until.present? && available_until < DateTime.current
       errors.add(:available_until, "Must be later than today")
->>>>>>> a25ab586af4c685903eebad0417ed90369339572
+
     end
   end
 

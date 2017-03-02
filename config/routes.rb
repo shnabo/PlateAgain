@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'acceptors', to: 'users#acceptors'
   get 'dashboard', to: 'users#dashboard', as: 'dashboard'
 
+  get 'listing', to: 'listings#new'
   resources :listings, only: [:index, :show]
   resources :users do
     resources :listings, except: :show
