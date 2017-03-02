@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :ensure_logged_in, only: [:update, :destroy]
+  before_action :ensure_logged_in, only: [:dashboard, :update, :destroy]
 
   def index
     redirect_to root_url
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    @user = load_user
+    @user = current_user
   end
 
 
