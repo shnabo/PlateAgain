@@ -15,10 +15,14 @@ class Listing < ApplicationRecord
   end
 
   def available_until_issue
-    if available_until.present? && available_until < Date.today
+    if available_until.present? && available_until < Date.today && Time
       errors.add(:available_until, "must be later then now")
     end
   end
+
+
+
+
 
 
 
