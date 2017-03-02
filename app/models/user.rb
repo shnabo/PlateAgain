@@ -13,4 +13,17 @@ class User < ApplicationRecord
 
   # Enable image upload with Carrierwave
   mount_uploader :photo, ImageUploader
+
+  def to_param
+    name
+  end
+
+  def self.find(input)
+    # if input.to_i != 0
+    #   super
+    # else
+      find_by_name(input)
+    # end
+  end
+
 end
