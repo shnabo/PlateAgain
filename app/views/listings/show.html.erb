@@ -1,7 +1,7 @@
 <h1> <%= @listing.item_name %></h1>
 
 <% if @listing.picture %>
-  <%= image_tag @listing.picture %>
+  <%= image_tag @listing.picture.url %>
 <% end %>
 
 <p>Quantity: <%= @listing.quantity %></p>
