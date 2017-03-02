@@ -2,6 +2,10 @@
   <%= render "shared/errors", object: @user %>
 
   <p class="field">
+    <%= f.label :username %><br  />
+    <%= f.text_field :username %>
+  </p>
+  <p class="field">
     <%= f.label :email %><br  />
     <%= f.email :email %>
   </p>

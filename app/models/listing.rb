@@ -10,13 +10,13 @@ class Listing < ApplicationRecord
 
   def issue_expiry_date
     if expiry_date.present? && expiry_date < Date.today
-      errors.add(:expiry_date, "must be at least today's date")
+      errors.add(:expiry_date, "Must be at least today's date")
     end
   end
 
   def available_until_issue
-    if available_until.present? && available_until < Date.today && Time
-      errors.add(:available_until, "must be later then now")
+    if available_until.present? && available_until < DateTime.current
+      errors.add(:available_until, "Must be later than today")
     end
   end
 
