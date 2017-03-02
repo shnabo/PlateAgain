@@ -14,6 +14,11 @@ class UsersController < ApplicationController
     @users = User.where('is_provider = ?', false)
   end
 
+  def listings
+    load_user
+    @listings = @user.listings
+  end
+
   def show
     @user = load_user
   end
