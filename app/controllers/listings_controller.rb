@@ -22,7 +22,7 @@ class ListingsController < ApplicationController
     @listing.user = @user
 
     if @listing.save
-      redirect_to dashboard_path(current_user.id)
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -36,7 +36,7 @@ class ListingsController < ApplicationController
     find_listing
 
     if @listing.update(listing_params)
-      redirect_to dashboard_path(current_user.id)
+      redirect_to dashboard_path
     else
       render :edit
     end
@@ -45,15 +45,11 @@ class ListingsController < ApplicationController
   def destroy
     find_listing
     @listing.destroy
-    redirect_to dashboard_path(@user)
+    redirect_to root_url
   end
 
 
   private
-
-  def load_user
-    @user = User.find(params[:user_id])
-  end
 
   def find_listing
     @listing = Listing.find(params[:id])
