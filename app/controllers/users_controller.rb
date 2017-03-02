@@ -26,8 +26,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to user_path(@user)
+      redirect_to dashboard_path, notice: "Registration successful!"
     else
+      flash.now[:alert] = "Registration failed."
       render :new
     end
   end
@@ -40,8 +41,9 @@ class UsersController < ApplicationController
     @user = load_user
 
     if @user.update_attributes(user_params)
-      redirect_to user_show_url(@user)
+      redirect_to dashboard_path, notice: "Profile updated!"
     else
+      flash.now[:alert] = "Profile update failed."
       render :edit
     end
   end
