@@ -11,9 +11,9 @@ Rails.application.routes.draw do
   get 'acceptors', to: 'users#acceptors'
   get 'dashboard', to: 'users#dashboard', as: 'dashboard'
 
-  resources :listings, only: :index
+  resources :listings, only: [:index, :show]
   resources :users do
-    resources :listings
+    resources :listings, except: :show
   end
 
   resources :sessions, only: [:new, :create, :destroy]
