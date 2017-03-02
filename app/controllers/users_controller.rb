@@ -44,6 +44,7 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
 
     def providers
       if @users = users.where()
@@ -66,6 +67,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :address, :phone, :description, :homepage, :photo, :registration, :password, :password_confirmation)
   end
-
 
 end
