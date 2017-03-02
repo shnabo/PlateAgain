@@ -9,12 +9,11 @@ Rails.application.routes.draw do
 
   get 'providers', to: 'users#providers'
   get 'acceptors', to: 'users#acceptors'
+  get ':id/listings',  to: 'users#listings', as: 'my_listings' 
   get 'dashboard', to: 'users#dashboard', as: 'dashboard'
 
-  resources :listings, only: [:index, :show]
-  resources :users do
-    resources :listings, except: :show
-  end
+  resources :listings
+  resources :users
 
   resources :sessions, only: [:new, :create, :destroy]
   get 'login', to: 'sessions#new', as: 'login'
