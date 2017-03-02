@@ -1,13 +1,12 @@
 class ListingsController < ApplicationController
-  before_action :ensure_logged_in
 
   def index
-    if params[:user_id]
-      @user = User.find(params[:user_id])
-      @listings = @user.listings
-    else
-      @listings = Listing.all
-    end
+      if params[:user_id]
+          @user = User.find(params[:user_id])
+          @listings = @user.listings
+      else
+        @listings = Listing.all
+      end
   end
 
   def show
@@ -23,9 +22,8 @@ class ListingsController < ApplicationController
     @listing.user = @user
 
     if @listing.save
-      redirect_to dashboard_path, notice: "Food item listed successfully!"
+      redirect_to dashboard_path(@user)
     else
-      flash.now[:alert] = "Listing failed."
       render :new
     end
   end
@@ -38,9 +36,8 @@ class ListingsController < ApplicationController
     find_listing
 
     if @listing.update(listing_params)
-      redirect_to dashboard_path, notice: "Food listing updated!"
+      redirect_to dashboard_path(@user)
     else
-      flash.now[:alert] = "Listing update failed."
       render :edit
     end
   end
@@ -48,11 +45,15 @@ class ListingsController < ApplicationController
   def destroy
     find_listing
     @listing.destroy
-    redirect_to root_url, notice: "Food listing deleted."
+    redirect_to dashboard_path(@user)
   end
 
 
   private
+
+  def load_user
+    @user = User.find(params[:user_id])
+  end
 
   def find_listing
     @listing = Listing.find(params[:id])
