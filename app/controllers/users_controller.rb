@@ -44,12 +44,6 @@ class UsersController < ApplicationController
     else
       render :edit
     end
-
-    def providers
-      if @users = users.where()
-    end
-    def acceptors
-    end
   end
 
   def dashboard
