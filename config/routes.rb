@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get '/users/:id/dashboard', to: 'users#dashboard', as: 'dashboard'
 
   resources :listings
-  resources :users 
+  resources :users
   resources :sessions, only: [:new, :create, :destroy]
 
 end
