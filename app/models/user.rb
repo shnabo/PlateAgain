@@ -5,9 +5,10 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
-  validates :email, uniqueness: true, presence: true
-  validates :phone, uniqueness: true, length: { minimum: 10}
-  validates_presence_of :name, :address, :description
+
+  validates_presence_of :username, :email, :name
+  validates_uniqueness_of :username, :email
+  validates :username, format: { without: /\s/ }
   # validates registration
   # we just have ^ here for future reminder
 
@@ -15,7 +16,7 @@ class User < ApplicationRecord
   mount_uploader :photo, ImageUploader
 
   def to_param
-    name
+    username
   end
 
   def self.find(input)
