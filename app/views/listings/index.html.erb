@@ -1,3 +1,9 @@
+<ul>
+  <% @listings.each do |listing| %>
 
-<% @listings = Listing.order(:available_until) %>
-<%= render 'list' %>
+    <li>
+      <%= link_to listing.item_name, listing_path(listing) %><br />
+      Available until: <%= listing.available_until_readable %>
+    </li>
+  <% end %>
+</ul>
