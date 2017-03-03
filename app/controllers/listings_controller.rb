@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+  before_action :ensure_logged_in
 
   def index
     @listings = Listing.all
@@ -14,7 +15,7 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listing_params)
-    @listing.user = @user
+    @listing.user_id = current_user.id
 
     if @listing.save
       redirect_to dashboard_path(current_user.id)
@@ -45,10 +46,6 @@ class ListingsController < ApplicationController
 
 
   private
-
-  def load_user
-    @user = User.find(params[:user_id])
-  end
 
   def find_listing
     @listing = Listing.find(params[:id])
