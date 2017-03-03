@@ -1,0 +1,5 @@
+<ul>
+  <% @listings.each do |listing| %>
+    <li><%= listing.item_name %>  <%= listing.expiry_date %></li>
+  <% end %>
+</ul>
