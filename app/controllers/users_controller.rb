@@ -56,6 +56,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @user = current_user
+    @listings = @user.listings
   end
 
 
