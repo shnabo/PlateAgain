@@ -4,12 +4,10 @@ class Listing < ApplicationRecord
   validate :expiry_date
   validate :available_until
   validates_presence_of :item_name, :quantity, :perishable
-
+  validate :issue_expiry_date, :available_until_issue
 
   # Enable image upload with Carrierwave
   mount_uploader :photo, ImageUploader
-
-  validate :issue_expiry_date, :available_until_issue
 
   def issue_expiry_date
     if expiry_date.present? && expiry_date < Date.today
@@ -24,7 +22,9 @@ class Listing < ApplicationRecord
     end
   end
 
-
+  def available_until_readable
+    self.available_until.strftime("%B %-d, %Y at %l:%M %p")
+  end
 
 
 

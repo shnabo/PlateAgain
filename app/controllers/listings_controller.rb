@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+  before_action :ensure_logged_in
 
   def index
    @listings = Listing.all
@@ -45,10 +46,6 @@ class ListingsController < ApplicationController
 
 
   private
-
-  def load_user
-    @user = User.find(params[:user_id])
-  end
 
   def find_listing
     @listing = Listing.find(params[:id])
