@@ -7,7 +7,7 @@ class Listing < ApplicationRecord
   validate :issue_expiry_date, :available_until_issue
 
   # Enable image upload with Carrierwave
-  mount_uploader :photo, ImageUploader
+  mount_uploader :picture, ImageUploader
 
   def issue_expiry_date
     if expiry_date.present? && expiry_date < Date.today
