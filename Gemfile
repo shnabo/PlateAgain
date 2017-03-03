@@ -32,7 +32,10 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'sorcery'
-
+#for GOOGLE MAPS api
+gem 'geocoder'
+#google MAPS
+gem 'gmaps4rails'
 gem 'carrierwave', '~> 1.0'
 
 # Use Capistrano for deployment
