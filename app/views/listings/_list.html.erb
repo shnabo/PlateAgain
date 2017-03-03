@@ -1,5 +1,5 @@
 <ul>
   <% @listings.each do |listing| %>
-    <li><%= link_to listing.item_name, listings_path(listing) %></li>
+    <li><%= listing.item_name %>  <%= listing.expiry_date %></li>
   <% end %>
 </ul>
