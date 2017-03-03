@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   geocoded_by :full_street_address
   after_validation :geocode
   authenticates_with_sorcery!
