@@ -37,6 +37,7 @@ gem 'geocoder'
 #google MAPS
 gem 'gmaps4rails'
 gem 'carrierwave', '~> 1.0'
+gem 'underscore-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
