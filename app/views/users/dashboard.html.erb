@@ -4,5 +4,5 @@
 
 <p>Registration number: <%= @user.registration %></p>
 
-<%# link_to "View my profile", ___ %>
-<%# link_to "Edit my profile", ___ %>
+<%= link_to "View my profile", user_path(@user) %>
+<%= link_to "Edit my profile", edit_user_path(@user) %>
