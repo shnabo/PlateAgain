@@ -7,6 +7,7 @@ class ListingsController < ApplicationController
 
   def show
     find_listing
+    load_user
   end
 
   def new
@@ -61,6 +62,10 @@ class ListingsController < ApplicationController
 
   def listing_params
     params.require(:listing).permit(:item_name, :quantity, :perishable, :expiry_date, :available_until, :contact_name, :contact_phone, :contact_email, :picture, :notes, :user_id)
+  end
+
+  def current_listing
+    @current_listing = listing.full_street_address
   end
 
 end

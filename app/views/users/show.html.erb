@@ -20,7 +20,7 @@
         var map = new google.maps.Map(document.getElementById('map'));
         directionsDisplay.setMap(map);
         directionsService.route({
-          origin: '456 Ellerslie Ave, Toronto, ON M2R1C4',
+          origin: '<%= @user.full_street_address %> ',
           destination: '220 King St. W, Toronto, ON M5H1K4',
           travelMode: 'DRIVING'
         }, function(response) {
@@ -29,5 +29,5 @@
       }
     </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArWXozgLx1A8ywDrWXL-xd6mCJwCiVQeo&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2PnC0FiulrIiFEbnHdJYptw0kM0ZHPTA&callback=initMap">
     </script>
