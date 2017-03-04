@@ -10,7 +10,11 @@ class ListingsController < ApplicationController
   end
 
   def new
-    @listing = Listing.new
+    if current_user.is_provider
+      @listing = Listing.new
+    else
+      redirect_to :back
+    end
   end
 
   def create
