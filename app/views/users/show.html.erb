@@ -8,7 +8,7 @@
 <p>Address: <%= @user.full_street_address %></p>
 <p>Phone: <%= @user.phone %></p>
 <p>Email: <%= @user.email %></p>
-<p>Website: <%= @user.homepage %></p>
+<p>Website: <%= link_to @user.homepage, @user.homepage %></p>
 <p><%= @user.description %></p>
 
 
