@@ -37,9 +37,12 @@ Rails.application.configure do
     address: "plateagaintoronto@gmail.com",
     port: 587,
     authentication: "plain",
-    user_name: ENV[""],
-    password: ENV[""]
+    user_name: ["plateagaintoronto@gmail.com"],
+    password: ["bitmakersasps"],
+    :enable_starttls_auto => true
   }
+
+  config.action_mailer.default_url_options = { host: "localhost:3000"}
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
