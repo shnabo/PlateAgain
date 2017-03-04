@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170303201030) do
+ActiveRecord::Schema.define(version: 20170304220800) do
 
   create_table "listings", force: :cascade do |t|
     t.string   "item_name"
@@ -24,11 +24,12 @@ ActiveRecord::Schema.define(version: 20170303201030) do
     t.string   "contact_email"
     t.string   "picture"
     t.text     "notes"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.boolean  "claimed"
     t.integer  "claimer_id"
     t.boolean  "available"
+    t.string   "full_street_address"
   end
 
   create_table "users", force: :cascade do |t|
