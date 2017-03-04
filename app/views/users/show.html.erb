@@ -11,24 +11,23 @@
 <p>Website: <%= @user.homepage %></p>
 <p><%= @user.description %></p>
 
-<div id="map"></div>
-<script>
-    function initMap() {
-      var directionsService = new google.maps.DirectionsService;
-      var directionsDisplay = new google.maps.DirectionsRenderer;
-      var map = new google.maps.Map(document.getElementById('map'));
-      directionsDisplay.setMap(map);
-      directionsService.route({
-        // origin: '456 Ellerslie Ave, Toronto, ON M2R1C4',
-        origin: "<%= @user.full_street_address %>",
-        destination: '220 King St. W, Toronto, ON M5H1K4',
 
-        travelMode: 'DRIVING'
-      }, function(response) {
-        directionsDisplay.setDirections(response);
-      });
-    }
-  </script>
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANACUqN0_0EnKIBM8awdCsbpEkfrs1QXo&callback=initMap">
-  </script>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var directionsService = new google.maps.DirectionsService;
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var map = new google.maps.Map(document.getElementById('map'));
+        directionsDisplay.setMap(map);
+        directionsService.route({
+          origin: '456 Ellerslie Ave, Toronto, ON M2R1C4',
+          destination: '220 King St. W, Toronto, ON M5H1K4',
+          travelMode: 'DRIVING'
+        }, function(response) {
+          directionsDisplay.setDirections(response);
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArWXozgLx1A8ywDrWXL-xd6mCJwCiVQeo&callback=initMap">
+    </script>
