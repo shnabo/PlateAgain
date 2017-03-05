@@ -1,10 +1,11 @@
 <h1> Listings for <%= @user.name %> </h1>
 
-<ul>
-  <% @listings.each do |listing| %>
+  <ul>
     <li>
       <%= link_to listing.item_name, listing_path(listing) %><br />
       Available until: <%= listing.available_until_readable %>
+      <% @listings.each do |listing| %>
+      <% end %>
     </li>
-  <% end %>
-</ul>
+  </ul>
+<% end %>

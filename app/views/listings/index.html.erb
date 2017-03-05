@@ -1,10 +1,15 @@
 <ul>
-  <% @listings.each do |listing| %>
+  <% @listings.each do | listing | %>
 
     <li>
       <%= link_to listing.item_name, listing_path(listing) %><br />
       Available until: <%= listing.available_until_readable %>
-      <button><%= button_to "claim", action: "index" %></button>
+
+      <%= form_for listing do | l | %>
+      <%= 
+        <%= l.submit "claim" %>
+      <% end %>
     </li>
+
   <% end %>
 </ul>
