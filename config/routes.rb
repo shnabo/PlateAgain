@@ -9,8 +9,10 @@ Rails.application.routes.draw do
 
   get 'providers', to: 'users#providers'
   get 'acceptors', to: 'users#acceptors'
-  get ':id/listings',  to: 'users#listings', as: 'my_listings' 
+  get ':id/listings',  to: 'users#listings', as: 'my_listings'
   get 'dashboard', to: 'users#dashboard', as: 'dashboard'
+
+  # resources 'claimed'
 
   resources :listings
   resources :users
