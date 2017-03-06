@@ -5,10 +5,9 @@
       <%= link_to listing.item_name, listing_path(listing) %><br />
       Available until: <%= listing.available_until_readable %>
 
-      <%= form_for listing do | l | %>
-      <%= l.submit "claim" %>
+      <%= button_to "Claim" %>
       <% end %>
     </li>
 
-  <% end %>
+
 </ul>

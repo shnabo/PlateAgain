@@ -3,7 +3,8 @@ class ListingsController < ApplicationController
   def index
    @listings = Listing.order(:available_until)
 
-  end
+       redirect_to listings_path
+     end
 
   def show
     find_listing
@@ -19,7 +20,7 @@ class ListingsController < ApplicationController
   end
 
   def create
-    @listing = Listing.new(listing_params)
+    @listing = Listing.new(listings_params)
     @listing.user_id = current_user.id
 
     if @listing.save
@@ -35,7 +36,7 @@ class ListingsController < ApplicationController
 
   def update
     find_listing
-    if @listing.update(listing_params)
+    if @listing.update(listings_params)
       redirect_to dashboard_path(current_user.id)
     else
       render :edit
@@ -59,9 +60,8 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
   end
 
-  def listing_params
-    params.require(:listing).
-    permit(
+  def listings_params
+    params.permit(
     :item_name,
     :quantity,
     :perishable,
