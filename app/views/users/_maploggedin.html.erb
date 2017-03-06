@@ -1,16 +1,4 @@
 
-<h1><%= @user.name %></h1>
-
-<% if @user.photo.present? %>
-  <%= image_tag @user.photo.url %>
-<% end %>
-
-<p>Address: <%= @user.full_street_address %></p>
-<p>Phone: <%= @user.phone %></p>
-<p>Email: <%= @user.email %></p>
-<p>Website: <%= link_to @user.homepage, @user.homepage %></p>
-<p><%= @user.description %></p>
-
     <div id="map"></div>
     <script>
       function initMap() {
@@ -19,11 +7,8 @@
         var map = new google.maps.Map(document.getElementById('map'));
         directionsDisplay.setMap(map);
         directionsService.route({
-
-
           origin:  '<%= current_user.full_street_address %>',
           destination: '<%= @user.full_street_address %>',
-
           travelMode: 'DRIVING'
         }, function(response) {
           directionsDisplay.setDirections(response);
@@ -31,12 +16,6 @@
       }
     </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2PnC0FiulrIiFEbnHdJYptw0kM0ZHPTA&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArWXozgLx1A8ywDrWXL-xd6mCJwCiVQeo&callback=initMap">
     </script>
-
-<% if current_user.present? %>
-   <%= render 'maploggedin' %>
-<% else %>
-  <%= render 'maploggedout' %>
-<% end %>
->>>>>>> 9f6520e2e6ed695559223524a117c06e6a387668
+    
