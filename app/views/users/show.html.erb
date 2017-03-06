@@ -20,8 +20,11 @@
         var map = new google.maps.Map(document.getElementById('map'));
         directionsDisplay.setMap(map);
         directionsService.route({
-          origin: '<%= @user.full_street_address %> ',
-          destination: '220 King St. W, Toronto, ON M5H1K4',
+
+
+          origin:  '<%= current_user.full_street_address %>',
+          destination: '<%= @user.full_street_address %>',
+
           travelMode: 'DRIVING'
         }, function(response) {
           directionsDisplay.setDirections(response);
