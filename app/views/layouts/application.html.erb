@@ -10,10 +10,6 @@
 
   <body>
 
-    <% flash.each do |key, message| %>
-      <div class="flash-<%= key %>"><%= message %></div>
-    <% end %>
-
     <header>
       <h1><%= link_to 'PlateAgain', root_url %></h1>
       <nav>
@@ -36,7 +32,14 @@
       </div>
     </header>
 
-    <%= yield %>
+
+    <% flash.each do |key, message| %>
+      <div class="flash-<%= key %>"><%= message %></div>
+    <% end %>
+
+    <main>
+      <%= yield %>
+    </main>
 
     <footer>
       &copy; 2017 Team SASPS | <%= link_to 'About PlateAgain', about_path %>
