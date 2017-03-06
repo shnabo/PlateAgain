@@ -10,7 +10,7 @@
 
   <body>
 
-    <header>
+    <header class="row">
       <h1><%= link_to 'PlateAgain', root_url %></h1>
       <nav>
         <%= link_to 'Providers', providers_path %>
@@ -34,14 +34,14 @@
 
 
     <% flash.each do |key, message| %>
-      <div class="flash-<%= key %>"><%= message %></div>
+      <div class="row flash-<%= key %>"><%= message %></div>
     <% end %>
 
-    <main>
+    <main class="row">
       <%= yield %>
     </main>
 
-    <footer>
+    <footer class="row">
       &copy; 2017 Team SASPS | <%= link_to 'About PlateAgain', about_path %>
     </footer>
   </body>
