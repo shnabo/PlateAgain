@@ -38,6 +38,7 @@ gem 'sorcery'
 # gem 'gmaps4rails'
 gem 'carrierwave', '~> 1.0'
 # gem 'underscore-rails'
+gem 'foundation-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
