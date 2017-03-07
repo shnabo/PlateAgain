@@ -38,9 +38,11 @@ gem 'sorcery'
 # gem 'gmaps4rails'
 gem 'carrierwave', '~> 1.0'
 
+
 gem 'underscore-rails'
 # gem 'underscore-rails'
 gem 'foundation-rails'
+
 # gem 'underscore-rails'
 
 
