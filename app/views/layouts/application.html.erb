@@ -9,42 +9,53 @@
   </head>
 
   <body>
+    <div class="page row">
 
-    <header class="row">
-      <h1 class="text-center small-centered"><%= link_to 'PlateAgain', root_url %></h1>
-      <nav class="menu float-left">
-        <%= link_to 'Providers', providers_path %>
-        <%= link_to 'Acceptors', acceptors_path %>
-        <% if current_user %>
-          <%= link_to 'Food Listings', listings_path %>
-        <% end %>
-      </nav>
+      <header class="medium-4 columns">
+        <h1 class="text-center small-centered"><%= link_to 'PlateAgain', root_url %></h1>
 
-      <div class="menu user-menu float-right">
-        <% if current_user %>
-          <%= link_to 'My Dashboard', dashboard_path %>
-          <%= link_to 'My Listings', my_listings_path(current_user) %>
-          <% if current_user.is_provider %>
-            <%= link_to 'Create Listing', new_listing_path %>
+        <nav class="small-6 medium-12 columns">
+          <ul class="menu vertical">
+            <li><%= link_to 'Providers', providers_path %></li>
+            <li><%= link_to 'Acceptors', acceptors_path %></li>
+            <% if current_user %>
+              <li><%= link_to 'Food Listings', listings_path %></li>
+            <% end %>
+          </ul>
+
+        </nav>
+
+        <div class="small-6 medium-12 columns">
+          <ul class="menu vertical">
+          <% if current_user %>
+            <li><%= link_to 'My Dashboard', dashboard_path %></li>
+            <li><%= link_to 'My Listings', my_listings_path(current_user) %></li>
+            <li><%= link_to 'Create Listing', new_listing_path %></li>
+            <li><%= link_to 'Log out', logout_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to('Log in', login_path, {"data-open" => "login-reveal"})  %></li>
+            <li class="menu-text">or</li>
+            <li><%= link_to 'Sign up', new_user_path %></li>
           <% end %>
-          <%= link_to 'Log out', logout_path, method: :delete %>
-        <% else %>
-          <%= link_to 'Log in', login_path %> or <%= link_to 'Sign up', new_user_path %>
+          </ul>
+          <div id="login-reveal" class="reveal">
+              <%= render "sessions/form" %>
+          </div>
+        </div>
+      </header>
+
+
+      <main class="medium-8 columns">
+        <% flash.each do |key, message| %>
+          <div class="flash-<%= key %>"><%= message %></div>
         <% end %>
-      </div>
-    </header>
+        <%= yield %>
+      </main>
+          </div>
 
+      <footer class="row text-center">
+        &copy; 2017 Team SASPS | <%= link_to 'About PlateAgain', about_path %>
+      </footer>
 
-    <% flash.each do |key, message| %>
-      <div class="row flash-<%= key %>"><%= message %></div>
-    <% end %>
-
-    <main class="row">
-      <%= yield %>
-    </main>
-
-    <footer class="row">
-      &copy; 2017 Team SASPS | <%= link_to 'About PlateAgain', about_path %>
-    </footer>
   </body>
 </html>
