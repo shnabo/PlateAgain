@@ -31,6 +31,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      UserMailer.signup_confirmation(@user).deliver
       auto_login(@user)
       redirect_to dashboard_path, notice: "Registration successful!"
     else
