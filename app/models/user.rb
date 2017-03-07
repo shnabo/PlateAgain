@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
 
   validates_presence_of :username, :email, :name, :password
-  validates_uniqueness_of :username, :email
+  # validates_uniqueness_of :username, :email
   validates :username, format: { without: /\s/ }
   # validates registration
   # we just have ^ here for future reminder
