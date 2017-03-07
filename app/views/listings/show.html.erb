@@ -1,9 +1,6 @@
 <h1> <%= @listing.item_name %></h1>
 
-<%
-
-
-<% if @listing.picture.present? %>
+<%if @listing.picture.present? %>
   <%= image_tag @listing.picture.url %>
 <% end %>
 
