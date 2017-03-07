@@ -5,9 +5,11 @@
       <%= link_to listing.item_name, listing_path(listing) %><br />
       Available until: <%= listing.available_until_readable %>
 
-      <%= button_to "Claim", listings_path%>
+      <%= form_for listing do | f | %>
+      <%= f.hidden_field :claimer_id, :value => current_user.id %>
+      <%= f.hidden_field :claimed, :value => true %>
+      <%= f.submit "claim" %>
       <% end %>
     </li>
-
-
+  <% end %>
 </ul>

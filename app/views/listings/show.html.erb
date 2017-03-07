@@ -1,5 +1,8 @@
 <h1> <%= @listing.item_name %></h1>
 
+<%
+
+
 <% if @listing.picture.present? %>
   <%= image_tag @listing.picture.url %>
 <% end %>
@@ -12,7 +15,6 @@
 <p>Email: <%= @listing.contact_email %></p>
 
 <h2>This food will be available on PlateAgain until <%= @listing.available_until_readable %></h2>
-
 <% if current_user === @listing.user  %>
   <%= link_to "Edit this listing", edit_listing_path %> |
   <%= link_to "Delete this listing", @listing, :method => :delete, :confirm => "Are you sure?", :title => "Delete #{@listing.item_name}"  %>

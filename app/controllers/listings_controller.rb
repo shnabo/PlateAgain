@@ -2,9 +2,7 @@ class ListingsController < ApplicationController
 
   def index
    @listings = Listing.order(:available_until)
-
-       redirect_to listings_path
-     end
+  end
 
   def show
     find_listing
@@ -61,7 +59,7 @@ class ListingsController < ApplicationController
   end
 
   def listings_params
-    params.permit(
+    params.require(:listing).permit(
     :item_name,
     :quantity,
     :perishable,
@@ -72,7 +70,9 @@ class ListingsController < ApplicationController
     :contact_email,
     :picture,
     :notes,
-    :user_id
+    :user_id,
+    :claimed,
+    :claimer_id
     )
 
   end
