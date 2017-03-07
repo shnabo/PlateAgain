@@ -3,7 +3,7 @@
   <head>
     <title>PlateAgain</title>
     <%= csrf_meta_tags %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -11,8 +11,8 @@
   <body>
 
     <header class="row">
-      <h1><%= link_to 'PlateAgain', root_url %></h1>
-      <nav>
+      <h1 class="text-center small-centered"><%= link_to 'PlateAgain', root_url %></h1>
+      <nav class="menu float-left">
         <%= link_to 'Providers', providers_path %>
         <%= link_to 'Acceptors', acceptors_path %>
         <% if current_user %>
@@ -20,7 +20,7 @@
         <% end %>
       </nav>
 
-      <div class="user-menu">
+      <div class="menu user-menu float-right">
         <% if current_user %>
           <%= link_to 'My Dashboard', dashboard_path %>
           <%= link_to 'My Listings', my_listings_path(current_user) %>
