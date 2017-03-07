@@ -11,6 +11,21 @@
 <p>Website: <%= link_to @user.homepage, @user.homepage %></p>
 <p><%= @user.description %></p>
 
+<h2> Reviews </h2>
+ <%= render @user.comments %>
+
+<h2>Add a Review:</h2>
+<%= form_for([@user, @user.comments.build]) do |f| %>
+  <p>
+    Reviews:
+    <%= f.text_field :comments %>
+  </p>
+  <p>
+    <%= f.submit 'Submit Review' %>
+  </p>
+<% end %>
+
+
 <% if current_user.present? %>
    <%= render 'maploggedin' %>
 <% else %>
