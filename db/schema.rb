@@ -32,20 +32,12 @@ ActiveRecord::Schema.define(version: 20170306234649) do
     t.string   "contact_email"
     t.string   "picture"
     t.text     "notes"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.boolean  "claimed"
     t.integer  "claimer_id"
     t.boolean  "available"
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "listing_id"
-    t.text     "comments"
-    t.string   "rating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "full_street_address"
   end
 
   create_table "users", force: :cascade do |t|
