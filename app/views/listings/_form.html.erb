@@ -2,36 +2,36 @@
   <%= render "shared/errors", object: @listing %>
 
    <div class="field">
-     <%= l.label :item_name %><br>
-     <%= l.text_field :item_name %>
+     <%= l.label :item_name %>
+     <%= l.text_field :item_name, required: true %>
    </div>
    <div class="field">
-     <%= l.label :quantity %><br>
-     <%= l.text_field :quantity %>
+     <%= l.label :quantity %>
+     <%= l.text_field :quantity, required: true %>
    </div>
-   <div class="field">
-     <%= l.radio_button :perishable, :checked => false  %> Non Perishable
+   <div class="field clearfix">
+     <fieldset>
+       <%= l.radio_button :perishable, :checked => false %><%= l.label :perishable, "Non perishable" %>
+       <%= l.radio_button :perishable, :checked => true %><%= l.label :perishable, "Perishable" %>
+     </fieldset>
    </div>
-   <div class="field">
-     <%= l.radio_button :perishable, :checked => true %> Perishable
-   </div>
-   <div class="field">
-     <%= l.label :expiry_date %><br>
+   <fieldset class="field">
+     <%= l.label :expiry_date %>
      <%= l.date_select :expiry_date %>
-   </div>
+   </fieldset>
    <div class="field">
-     <%= l.label :picture %><br>
+     <%= l.label :picture %>
      <%= l.file_field :picture %>
    </div>
-   <div class="field">
-     <%= l.label :available_until %><br>
+   <fieldset class="field">
+     <%= l.label :available_until %>
      <%= l.datetime_select :available_until %>
-   </div>
+   </fieldset>
    <div class="field">
-     <%= l.label :notes %><br>
-     <%= l.text_field :notes %>
+     <%= l.label :notes %>
+     <%= l.text_area :notes %>
    </div>
-   <div class="button">
+   <div>
      <%= l.submit %>
    </div>
 

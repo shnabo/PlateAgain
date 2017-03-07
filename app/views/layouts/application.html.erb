@@ -33,11 +33,14 @@
             <li><%= link_to 'Create Listing', new_listing_path %></li>
             <li><%= link_to 'Log out', logout_path, method: :delete %></li>
           <% else %>
-            <li><%= link_to 'Log in', login_path %></li>
+            <li><%= link_to('Log in', login_path, {"data-open" => "login-reveal"})  %></li>
             <li class="menu-text">or</li>
             <li><%= link_to 'Sign up', new_user_path %></li>
           <% end %>
           </ul>
+          <div id="login-reveal" class="reveal">
+              <%= render "sessions/form" %>
+          </div>
         </div>
       </header>
 
