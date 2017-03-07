@@ -15,18 +15,22 @@
        <%= l.radio_button :perishable, :checked => true %><%= l.label :perishable, "Perishable" %>
      </fieldset>
    </div>
+
    <fieldset class="field">
      <%= l.label :expiry_date %>
      <%= l.date_select :expiry_date %>
    </fieldset>
+
    <div class="field">
      <%= l.label :picture %>
      <%= l.file_field :picture %>
    </div>
+
    <fieldset class="field">
      <%= l.label :available_until %>
-     <%= l.datetime_select :available_until %>
+     <%= l.datetime_select :available_until, ampm: true %>
    </fieldset>
+
    <div class="field">
      <%= l.label :notes %>
      <%= l.text_area :notes %>
