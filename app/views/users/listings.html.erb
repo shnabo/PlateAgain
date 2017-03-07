@@ -4,10 +4,10 @@
 <%= render 'listings' %>
 
   <ul>
+    <% @listings.each do |listing| %>
     <li>
       <%= link_to listing.item_name, listing_url(listing) %><br />
       Available until: <%= listing.available_until_readable %>
-      <% @listings.each do |listing| %>
-      <% end %>
     </li>
+    <% end %>
   </ul>
