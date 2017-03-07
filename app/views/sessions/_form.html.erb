@@ -1,17 +1,17 @@
 <%= form_tag sessions_path, :method => :post do %>
-<p class="field">
-  <%= label_tag :email %> <br />
+<div class="field">
+  <%= label_tag :email %>
   <%= text_field_tag :email %>
-</p>
+</div>
 
-<p class="field">
-  <%= label_tag :password %> <br />
+<div class="field">
+  <%= label_tag :password %>
   <%= password_field_tag :password %>
-</p>
+</div>
 
-<p class="field">
+<div class="field">
   <%= submit_tag "Log In" %>
-</p>
+</div>
 
 
 <% end %>
