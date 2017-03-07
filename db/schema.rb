@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170306234649) do
 
   create_table "comments", force: :cascade do |t|
@@ -32,11 +33,12 @@ ActiveRecord::Schema.define(version: 20170306234649) do
     t.string   "contact_email"
     t.string   "picture"
     t.text     "notes"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.boolean  "claimed"
     t.integer  "claimer_id"
     t.boolean  "available"
+    t.string   "full_street_address"
   end
 
   create_table "reviews", force: :cascade do |t|

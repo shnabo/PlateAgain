@@ -1,25 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
-
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <title>PlateAgain</title>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
 
-  <% flash.each do |key, message| %>
-    <div class=" row expanded callout flash-<%= key %>"><%= message %></div>
-  <% end %>
+    <header class="row">
+      <h1 class="text-center small-centered"><%= link_to 'PlateAgain', root_url %></h1>
+      <nav class="menu float-left">
+        <%= link_to 'Providers', providers_path %>
+        <%= link_to 'Acceptors', acceptors_path %>
+        <% if current_user %>
+          <%= link_to 'Food Listings', listings_path %>
+        <% end %>
+      </nav>
 
-  <main class="row">
-    <%= yield %>
-  </main>
+      <div class="menu user-menu float-right">
+        <% if current_user %>
+          <%= link_to 'My Dashboard', dashboard_path %>
+          <%= link_to 'My Listings', my_listings_path(current_user) %>
+          <% if current_user.is_provider %>
+            <%= link_to 'Create Listing', new_listing_path %>
+          <% end %>
+          <%= link_to 'Log out', logout_path, method: :delete %>
+        <% else %>
+          <%= link_to 'Log in', login_path %> or <%= link_to 'Sign up', new_user_path %>
+        <% end %>
+      </div>
+    </header>
 
+
+    <% flash.each do |key, message| %>
+      <div class="row flash-<%= key %>"><%= message %></div>
+    <% end %>
+
+    <main class="row">
+      <%= yield %>
+    </main>
+
+    <footer class="row">
+      &copy; 2017 Team SASPS | <%= link_to 'About PlateAgain', about_path %>
+    </footer>
   </body>
 </html>

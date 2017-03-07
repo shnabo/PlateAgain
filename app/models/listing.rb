@@ -26,7 +26,9 @@ class Listing < ApplicationRecord
     self.available_until.strftime("%B %-d, %Y at %l:%M %p")
   end
 
-
+  def listing_address
+    @listing_address = listing.full_street_address
+  end
 
 
 
