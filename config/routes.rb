@@ -15,7 +15,11 @@ Rails.application.routes.draw do
   post 'claimed', to: 'listings#claimed'
 
   resources :listings
-  resources :users
+  
+  resources :users do
+    resources :comments
+  end
+
 
   resources :sessions, only: [:new, :create, :destroy]
   get 'login', to: 'sessions#new', as: 'login'
