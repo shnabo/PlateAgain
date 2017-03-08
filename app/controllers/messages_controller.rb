@@ -3,14 +3,14 @@ class MessagesController < ApplicationController
   before_action :set_conversation
 
   def create
-    receipt = User.first.reply_to_conversation(@conversation, body)
-    redirect_to receipt.conversation
+    receipt = User.last.reply_to_conversation(@conversation, params[:body])
+    redirect_to conversation_path(receipt.conversation)
   end
 
   private
 
   def set_conversation
-  @conversation = User.first.mailbox.conversations.find(params[:conversation_id])
+  @conversation = User.last.mailbox.conversations.find(params[:conversation_id])
   end
 
 

@@ -1,11 +1,17 @@
 class ConversationsController < ApplicationController
 
   def index
-    @conversations = User.first.mailbox.conversations
+    @conversations = User.last.mailbox.conversations
   end
 
   def show
-    @conversation = User.first.mailbox.conversations.find(params[:id])
+    @conversation = User.last.mailbox.conversations.find(params[:id])
   end
-    
+
+  def new
+  end
+
+  def create
+  end
+
 end
