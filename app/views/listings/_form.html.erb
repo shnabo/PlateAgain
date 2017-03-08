@@ -1,45 +1,47 @@
 <div class="card">
-<%= form_for [@user, @listing] do |l| %>
-  <%= render "shared/errors", object: @listing %>
+  <%= form_for [@user, @listing] do |l| %>
+    <%= render "shared/errors", object: @listing %>
 
-   <div class="field">
-     <%= l.label :item_name %>
-     <%= l.text_field :item_name, required: true %>
-   </div>
-   <div class="field">
-     <%= l.label :quantity %>
-     <%= l.text_field :quantity, required: true %>
-   </div>
-   <div class="field clearfix">
-     <fieldset>
-       <%= l.radio_button :perishable, :checked => false %><%= l.label :perishable, "Non perishable" %>
-       <%= l.radio_button :perishable, :checked => true %><%= l.label :perishable, "Perishable" %>
+     <div class="field">
+       <%= l.label :item_name %>
+       <%= l.text_field :item_name, required: true %>
+     </div>
+
+     <div class="field">
+       <%= l.label :quantity %>
+       <%= l.text_field :quantity, required: true %>
+     </div>
+     
+     <div class="field clearfix">
+       <fieldset>
+         <%= l.radio_button :perishable, :checked => false %><%= l.label :perishable, "Non perishable" %>
+         <%= l.radio_button :perishable, :checked => true %><%= l.label :perishable, "Perishable" %>
+       </fieldset>
+     </div>
+
+     <fieldset class="field">
+       <%= l.label :expiry_date %>
+       <%= l.date_select :expiry_date %>
      </fieldset>
-   </div>
 
-   <fieldset class="field">
-     <%= l.label :expiry_date %>
-     <%= l.date_select :expiry_date %>
-   </fieldset>
+     <div class="field">
+       <%= l.label :picture %>
+       <%= l.file_field :picture %>
+     </div>
 
-   <div class="field">
-     <%= l.label :picture %>
-     <%= l.file_field :picture %>
-   </div>
+     <fieldset class="field">
+       <%= l.label :available_until %>
+       <%= l.datetime_select :available_until, ampm: true %>
+     </fieldset>
 
-   <fieldset class="field">
-     <%= l.label :available_until %>
-     <%= l.datetime_select :available_until, ampm: true %>
-   </fieldset>
+     <div class="field">
+       <%= l.label :notes %>
+       <%= l.text_area :notes %>
+     </div>
+     <div>
+       <%= l.submit %>
+     </div>
 
-   <div class="field">
-     <%= l.label :notes %>
-     <%= l.text_area :notes %>
-   </div>
-   <div>
-     <%= l.submit %>
-   </div>
+  <% end %>
 
-<% end %>
-  
 </div>
