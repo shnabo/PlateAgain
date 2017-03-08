@@ -1,8 +1,10 @@
-<h1>Welcome, <%= @user.name %>!</h1>
+<div class="card">
+  <h1>Welcome, <%= @user.name %>!</h1>
 
-<p>Registration number: <%= @user.registration %></p>
+  <p>Registration number: <%= @user.registration %></p>
 
-<%= link_to "View my profile", user_path(@user) %>
-<%= link_to "Edit my profile", edit_user_path(@user) %>
+  <%= link_to "View my profile", user_path(@user) %>
+  <%= link_to "Edit my profile", edit_user_path(@user) %>
 
-<%= render 'listings' %>
+  <%= render 'listings' %>
+</div>
