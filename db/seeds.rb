@@ -74,7 +74,7 @@ User.create(is_provider: true,
             password: 'password',
             password_confirmation: 'password',
             add_number: '141 St George St., Toronto, ON M5R2L8',
-            add_name: 'StGeorge'
+            add_name: 'StGeorge',
             add_type: 'St',
             your_city:'Toronto',
             postal: 'M5R2L8',
