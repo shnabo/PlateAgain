@@ -5,7 +5,7 @@
   <%= image_tag @user.photo.url %>
 <% end %>
 
-<p>Address: <%= @user.full_street_address %></p>
+<p>Address: <%= @show_address %></p>
 <p>Phone: <%= @user.phone %></p>
 <p>Email: <%= @user.email %></p>
 <p>Website: <%= link_to @user.homepage, @user.homepage %></p>
