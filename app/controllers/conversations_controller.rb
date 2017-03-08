@@ -6,5 +6,6 @@ class ConversationsController < ApplicationController
 
   def show
     @conversation = User.first.mailbox.conversations.find(params[:id])
-
+  end
+    
 end
