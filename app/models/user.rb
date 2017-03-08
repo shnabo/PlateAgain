@@ -17,8 +17,13 @@ class User < ApplicationRecord
   # Enable image upload with Carrierwave
   mount_uploader :photo, ImageUploader
 
+  #all of email methods needed
   #in order to add mailbox methods, send methods etc
   acts_as_messageable
+
+  def mailboxer_email(object)
+    nil
+  end
 
   # Allows pretty urls
   def to_param
