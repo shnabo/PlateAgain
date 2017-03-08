@@ -2,7 +2,7 @@ class ListingsController < ApplicationController
 
   def index
    @listings = Listing.order(:available_until)
-  end
+   end
 
   def show
     find_listing
