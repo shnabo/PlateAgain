@@ -1,21 +1,7 @@
 
-    <div id="map"></div>
-    <script>
-      function initMap() {
-        var directionsService = new google.maps.DirectionsService;
-        var directionsDisplay = new google.maps.DirectionsRenderer;
-        var map = new google.maps.Map(document.getElementById('map'));
-        directionsDisplay.setMap(map);
-        directionsService.route({
-          origin:  '<%= current_user.full_street_address %>',
-          destination: '<%= @user.full_street_address %>',
-          travelMode: 'DRIVING'
-        }, function(response) {
-          directionsDisplay.setDirections(response);
-        });
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArWXozgLx1A8ywDrWXL-xd6mCJwCiVQeo&callback=initMap">
-    </script>
-    
+<iframe
+width="600"
+height="450"
+frameborder="0" style="border:0"
+src="http://www.google.com/maps/embed/v1/directions?key=AIzaSyArWXozgLx1A8ywDrWXL-xd6mCJwCiVQeo&origin=<%=@address%>&destination=456+ellerslie+ave+toronto&avoid=tolls|highways">>
+</iframe>

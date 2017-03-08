@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306234649) do
+ActiveRecord::Schema.define(version: 20170307213901) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -38,6 +38,25 @@ ActiveRecord::Schema.define(version: 20170306234649) do
     t.integer  "claimer_id"
     t.boolean  "available"
     t.string   "full_street_address"
+    t.string   "street_number"
+    t.string   "street_name"
+    t.string   "street_type"
+    t.string   "city"
+    t.string   "postal_code"
+    t.string   "add_number"
+    t.string   "add_name"
+    t.string   "add_type"
+    t.string   "your_city"
+    t.string   "postal"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "listing_id"
+    t.text     "comments"
+    t.string   "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,6 +76,16 @@ ActiveRecord::Schema.define(version: 20170306234649) do
     t.string   "username"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "street_number"
+    t.string   "street_name"
+    t.string   "street_type"
+    t.string   "city"
+    t.string   "postal_code"
+    t.string   "add_number"
+    t.string   "add_name"
+    t.string   "add_type"
+    t.string   "your_city"
+    t.string   "postal"
   end
 
 end
