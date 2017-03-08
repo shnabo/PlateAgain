@@ -1,7 +1,10 @@
 class ConversationsController < ApplicationController
 
   def index
-    @conversations =  current_user.mailbox.conversations
+    @conversations = User.first.mailbox.conversations
   end
+
+  def show
+    @conversation = User.first.mailbox.conversations.find(params[:id])
 
 end
