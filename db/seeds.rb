@@ -6,18 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(is_provider: true,
-            username: 'BitMakerGrill',
-            name: 'BMGrill',
-            email: 'BMG@grillmaster.com',
-            password: 'password',
-            password_confirmation: 'password',
-            full_street_address: '220 King St W, Toronto, ON M5H1K4',
-            phone: '416-555-1234',
-            description: 'Sed chuck pork chop shoulder laborum, pork loin cupidatat dolor landjaeger eiusmod excepteur. Capicola fatback dolore ball tip excepteur kielbasa. Ground round landjaeger exercitation leberkas, ball tip consectetur tri-tip magna in bresaola anim dolore minim. Ut exercitation spare ribs sirloin ribeye aute brisket ex ut beef ribs proident laboris nostrud. ',
-            homepage: 'bitmakerlabs.com',
-            photo: '',
-            registration: 'RRG12345')
+
 User.create(is_provider: true,
             username: 'BurgerPriest',
             name: 'Burger Priest',

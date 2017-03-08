@@ -6,11 +6,17 @@
       <h3><%= link_to listing.item_name, listing_path(listing) %></h3>
       Available until: <%= listing.available_until_readable %>
 
+    <% if current_user.is_provider == false %>
       <%= form_for listing do | f | %>
         <%= f.hidden_field :claimer_id, :value => current_user.id %>
         <%= f.hidden_field :claimed, :value => true %>
         <%= f.submit "claim" %>
       <% end %>
+    <% else %>
+      <p><%=  "Sorry, Donors Cannot Claim Food!"  %></p>
+
+
     </li>
-  <% end %>
+    <% end %>
+      <% end %>
 </ul>
