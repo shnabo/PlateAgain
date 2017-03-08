@@ -4,8 +4,12 @@
   <fieldset>
     <legend>Set up your account:</legend>
     <div class="field">
-      <%= f.radio_button :is_provider, :checked => true %><%= f.label :is_provider, "Provider: I want to offer available food" %><br />
-      <%= f.radio_button :is_provider, :checked => false %><%= f.label :is_provider, "Accepter: I will accept food for a meal program" %>
+      <%= f.label :is_provider, "Provider: I want to offer available food", :value => true %>
+      <%= f.radio_button :is_provider, true %>
+    </div>
+    <div class="field">
+      <%= f.label :is_provider, "Accepter: I will accept food for a meal program", :value => false %>
+      <%= f.radio_button :is_provider, false %>
     </div>
 
     <div class="field">
