@@ -1,6 +1,6 @@
-<ul>
+<ul class="unlist">
   <% @listings.each do |listing| %>
-    <li>
+    <li class="card">
       <%= link_to listing.item_name, listing_path(listing) %><br />
       Available until: <%= listing.available_until_readable %><br />
       <%= link_to "Edit this listing", edit_listing_path(listing) %> |

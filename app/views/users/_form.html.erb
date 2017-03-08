@@ -1,5 +1,6 @@
-<%= form_for @user do |f| %>
-  <%= render "shared/errors", object: @user %>
+<div class="card">
+  <%= form_for @user do |f| %>
+    <%= render "shared/errors", object: @user %>
 
   <fieldset>
     <legend>Set up your account:</legend>
@@ -12,37 +13,37 @@
       <%= f.radio_button :is_provider, false %>
     </div>
 
-    <div class="field">
-      <%= f.label :username %>
-      <%= f.text_field :username %>
-    </div>
-    <div class="field">
-      <%= f.label :email %>
-      <%= f.email_field :email %>
-    </div>
+      <div class="field">
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+      </div>
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </div>
 
-    <div class="field">
-       <%= f.label :password %>
-       <%= f.password_field :password %>
-    </div>
+      <div class="field">
+         <%= f.label :password %>
+         <%= f.password_field :password %>
+      </div>
 
-    <div class="field">
-       <%= f.label :password_confirmation %>
-       <%= f.password_field :password_confirmation %>
-    </div>
-  </fieldset>
+      <div class="field">
+         <%= f.label :password_confirmation %>
+         <%= f.password_field :password_confirmation %>
+      </div>
+    </fieldset>
 
-  <fieldset>
-    <legend>Tell us more about your organization:</legend>
-    <div class="field">
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-    </div>
+    <fieldset>
+      <legend>Tell us more about your organization:</legend>
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
 
-    <div class="field">
-      <%= f.label :registration %>
-      <%= f.text_field :registration %>
-    </div>
+      <div class="field">
+        <%= f.label :registration %>
+        <%= f.text_field :registration %>
+      </div>
 
     <div class="field">
       <%= f.label :add_number %>
@@ -65,25 +66,27 @@
       <%= f.text_field :postal %>
     </div>
 
-    <div class="field">
-      <%= f.label :phone %>
-      <%= f.text_field :phone %>
+      <div class="field">
+        <%= f.label :phone %>
+        <%= f.text_field :phone %>
+      </div>
+
+      <div class="field">
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+      </div>
+
+      <div class="field">
+        <%= f.label :photo %>
+        <%= f.file_field :photo %>
+      </div>
+    </fieldset>
+
+
+    <div class="submit">
+      <%= f.submit "Save" %>
     </div>
 
-    <div class="field">
-      <%= f.label :description %>
-      <%= f.text_area :description %>
-    </div>
+  <% end %>
 
-    <div class="field">
-      <%= f.label :photo %>
-      <%= f.file_field :photo %>
-    </div>
-  </fieldset>
-
-
-  <div class="submit">
-    <%= f.submit "Save" %>
-  </div>
-
-<% end %>
+</div>
