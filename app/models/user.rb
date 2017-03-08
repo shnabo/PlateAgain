@@ -17,6 +17,9 @@ class User < ApplicationRecord
   # Enable image upload with Carrierwave
   mount_uploader :photo, ImageUploader
 
+  #in order to add mailbox methods, send methods etc
+  acts_as_messageable
+
   # Allows pretty urls
   def to_param
     username
