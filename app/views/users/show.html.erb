@@ -18,23 +18,18 @@
   <% end %>
 </div>
 
-<h2> Reviews </h2>
- <%= render @user.comments %>
+<div class="card">
+  <h2> Reviews </h2>
+   <%= render @user.comments %>
 
-<h2>Add a Review:</h2>
-<%= form_for([@user, @user.comments.build]) do |f| %>
-  <p>
-    Reviews:
-    <%= f.text_field :comments %>
-  </p>
-  <p>
-    <%= f.submit 'Submit Review' %>
-  </p>
-<% end %>
-
-
-<% if current_user.present? %>
-   <%= render 'maploggedin' %>
-<% else %>
-  <%= render 'maploggedout' %>
-<% end %>
+  <h2>Add a Review:</h2>
+  <%= form_for([@user, @user.comments.build]) do |f| %>
+    <p>
+      Reviews:
+      <%= f.text_field :comments %>
+    </p>
+    <p>
+      <%= f.submit 'Submit Review' %>
+    </p>
+  <% end %>
+</div>
