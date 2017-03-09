@@ -42,6 +42,8 @@
 //  37. Top Bar
 
 @import 'util/util';
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaina');
+
 
 // 1. Global
 // ---------
@@ -78,6 +80,7 @@ $global-radius: 0;
 $global-text-direction: ltr;
 $global-flexbox: false;
 $print-transparent-backgrounds: true;
+$fun-font-family: 'Baloo Bhaina';
 
 @include add-foundation-colors;
 
@@ -109,7 +112,7 @@ $block-grid-max: 8;
 // 4. Base Typography
 // ------------------
 
-$header-font-family: $body-font-family;
+$header-font-family: $fun-font-family;
 $header-font-weight: $global-weight-normal;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
