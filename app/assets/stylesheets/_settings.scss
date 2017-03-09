@@ -42,7 +42,7 @@
 //  37. Top Bar
 
 @import 'util/util';
-@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaina');
+@import url('https://fonts.googleapis.com/css?family=Carter+One');
 
 
 // 1. Global
@@ -60,15 +60,17 @@ $foundation-palette: (
 );
 $color1: rgba(96, 114, 137, 1);
 $color2: rgba(96, 158, 135, 1);
+$color2-light: scale-color($color2, $lightness: 60%);
 $color3: rgba(133, 173, 137, 1);
 $color4: rgba(214, 216, 162, 1);
 $color5: rgba(247, 255, 201, 1);
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
-$black: #222222;
+$black: #333333;
 $white: #fefefe;
-$body-background: scale-color($color2, $lightness: 60%);
+
+$body-background: $color2-light;
 $body-font-color: $black;
 $body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
@@ -80,7 +82,7 @@ $global-radius: 0;
 $global-text-direction: ltr;
 $global-flexbox: false;
 $print-transparent-backgrounds: true;
-$fun-font-family: 'Baloo Bhaina';
+$fun-font-family: 'Carter One';
 
 @include add-foundation-colors;
 
@@ -149,7 +151,7 @@ $code-font-weight: $global-weight-normal;
 $code-background: $light-gray;
 $code-border: 1px solid $medium-gray;
 $code-padding: rem-calc(2 5 1);
-$anchor-color: $color1;
+$anchor-color: $color2-light;
 $anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
