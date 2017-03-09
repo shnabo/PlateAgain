@@ -8,7 +8,6 @@ class User < ApplicationRecord
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
 
-  validates_presence_of :is_provider
 
   validates_presence_of :username, :email, :name, :password
   validates_uniqueness_of :username
