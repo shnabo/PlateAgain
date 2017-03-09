@@ -15,10 +15,15 @@ Rails.application.routes.draw do
   post 'claimed', to: 'listings#claimed'
 
   resources :listings
-  
+
   resources :users do
     resources :comments
   end
+
+  resources :conversations do
+    resources :messages
+  end
+
 
 
   resources :sessions, only: [:new, :create, :destroy]
