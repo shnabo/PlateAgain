@@ -24,8 +24,12 @@
 
 <div class="card">
   <h2> Reviews </h2>
-   <%= render @user.comments %>
-
+   <% @user.comments.each do |comment| %>
+   <p> <%= User.find(comment.user_id).name %> </p>
+   <p> <%= comment.comments %> </p>
+   <% end %>
+<div>
+<div class="card">
   <h2>Add a Review:</h2>
   <%= form_for([@user, @user.comments.build]) do |f| %>
     <p>
