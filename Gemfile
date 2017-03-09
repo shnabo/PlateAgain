@@ -42,8 +42,7 @@ gem 'underscore-rails'
 # gem 'underscore-rails'
 gem 'foundation-rails'
 
-# gem 'underscore-rails'
-gem 'devise'
+
 gem 'mailboxer', github: 'mailboxer/mailboxer'
 
 # Use Capistrano for deployment
