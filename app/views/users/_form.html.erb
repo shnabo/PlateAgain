@@ -5,28 +5,28 @@
     <fieldset>
       <legend>Set up your account:</legend>
       <div class="field">
-        <label>User type:</label>
+        <label class="required">User type:</label>
         <%= f.radio_button :is_provider, :checked => true %><%= f.label :is_provider, "Provider: I want to offer available food" %><br />
         <%= f.radio_button :is_provider, :checked => false %><%= f.label :is_provider, "Accepter: I will accept food for a meal program" %>
       </div>
 
       <div class="field">
-        <%= f.label :username %>
+        <%= f.label :username, class: "required" %>
         <span class="help-text" id="usernameHelp">Username cannot contain any spaces. Make sure it's descriptive, since it will show in your profile URL.</span>
         <%= f.text_field :username, "aria-describedby" => "usernameHelp" %>
       </div>
       <div class="field">
-        <%= f.label :email %>
+        <%= f.label :email, class: "required" %>
         <%= f.email_field :email %>
       </div>
 
       <div class="field">
-         <%= f.label :password %>
+         <%= f.label :password, class: "required" %>
          <%= f.password_field :password %>
       </div>
 
       <div class="field">
-         <%= f.label :password_confirmation %>
+         <%= f.label :password_confirmation, class: "required" %>
          <%= f.password_field :password_confirmation %>
       </div>
     </fieldset>
@@ -34,7 +34,7 @@
     <fieldset>
       <legend>Tell us more about your organization:</legend>
       <div class="field">
-        <%= f.label :name %>
+        <%= f.label :name, class: "required" %>
         <%= f.text_field :name %>
       </div>
 
