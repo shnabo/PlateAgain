@@ -5,6 +5,7 @@
     <li class="card">
       <h3><%= link_to listing.item_name, listing_path(listing) %></h3>
       Available until: <%= listing.available_until_readable %>
+      <%= link_to "Send Message", new_conversation_url %>
 
     <% if current_user.is_provider == false %>
       <%= form_for listing do | f | %>
