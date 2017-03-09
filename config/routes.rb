@@ -12,8 +12,6 @@ Rails.application.routes.draw do
   get ':id/listings',  to: 'users#listings', as: 'my_listings'
   get 'dashboard', to: 'users#dashboard', as: 'dashboard'
 
-  post 'claimed', to: 'listings#claimed'
-
   resources :listings
 
   resources :users do

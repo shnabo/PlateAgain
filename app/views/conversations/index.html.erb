@@ -2,7 +2,7 @@
 
   <% @conversations.each do | conversation | %>
 
-    <div>
+    <div class = "subject_name">
       <%= link_to conversation.subject, conversation_path(conversation) %>
     </div>
 

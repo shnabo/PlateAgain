@@ -1,15 +1,15 @@
-<h1> <%= @conversation.subject %> </h1>
+<h1 = class "subjectHeader"> <%= @conversation.subject %> </h1>
 
 <% @conversation.receipts_for(current_user).each do | receipt | %>
   <div>
-  <div>  <%= receipt.message.sender.name %> commented:</div>
-  <p> <%= receipt.message.body %> </p>
+  <div = "username">  <%= receipt.message.sender.name %> commented:</div>
+  <p class = "comments"> <%= receipt.message.body %> </p>
   </div>
 
   <% end %>
 
 <%= form_tag conversation_messages_path(@conversation), method: 'post' do %>
-  <div>
+  <div class = "messagebox">
     <%= text_area_tag :body %>
   </div>
 
