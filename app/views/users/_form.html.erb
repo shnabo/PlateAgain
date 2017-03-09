@@ -2,33 +2,31 @@
   <%= form_for @user do |f| %>
     <%= render "shared/errors", object: @user %>
 
-  <fieldset>
-    <legend>Set up your account:</legend>
-    <div class="field">
-      <%= f.label :is_provider, "Provider: I want to offer available food", :value => true %>
-      <%= f.radio_button :is_provider, true %>
-    </div>
-    <div class="field">
-      <%= f.label :is_provider, "Accepter: I will accept food for a meal program", :value => false %>
-      <%= f.radio_button :is_provider, false %>
-    </div>
+    <fieldset>
+      <legend>Set up your account:</legend>
+      <div class="field">
+        <label class="required">User type:</label>
+        <%= f.radio_button :is_provider, :checked => true %><%= f.label :is_provider, "Provider: I want to offer available food" %><br />
+        <%= f.radio_button :is_provider, :checked => false %><%= f.label :is_provider, "Accepter: I will accept food for a meal program" %>
+      </div>
 
       <div class="field">
-        <%= f.label :username %>
-        <%= f.text_field :username %>
+        <%= f.label :username, class: "required" %>
+        <span class="help-text" id="usernameHelp">Username cannot contain any spaces. Make sure it's descriptive, since it will show in your profile URL.</span>
+        <%= f.text_field :username, "aria-describedby" => "usernameHelp" %>
       </div>
       <div class="field">
-        <%= f.label :email %>
+        <%= f.label :email, class: "required" %>
         <%= f.email_field :email %>
       </div>
 
       <div class="field">
-         <%= f.label :password %>
+         <%= f.label :password, class: "required" %>
          <%= f.password_field :password %>
       </div>
 
       <div class="field">
-         <%= f.label :password_confirmation %>
+         <%= f.label :password_confirmation, class: "required" %>
          <%= f.password_field :password_confirmation %>
       </div>
     </fieldset>
@@ -36,35 +34,37 @@
     <fieldset>
       <legend>Tell us more about your organization:</legend>
       <div class="field">
-        <%= f.label :name %>
+        <%= f.label :name, class: "required" %>
         <%= f.text_field :name %>
       </div>
 
       <div class="field">
-        <%= f.label :registration %>
+        <%= f.label :registration, "Organization registration number" %>
         <%= f.text_field :registration %>
       </div>
 
-    <div class="field">
-      <%= f.label :add_number %>
-      <%= f.text_field :add_number %>
-    </div>
-    <div class="field">
-      <%= f.label :add_name %>
-      <%= f.text_field :add_name %>
-    </div>
-    <div class="field">
-      <%= f.label :add_type %>
-      <%= f.text_field :add_type %>
-    </div>
-    <div class="field">
-      <%= f.label :your_city %>
-      <%= f.text_field :your_city %>
-    </div>
-    <div class="field">
-      <%= f.label :postal %>
-      <%= f.text_field :postal %>
-    </div>
+      <div class="field">
+        <%= f.label :add_number, "Street number" %>
+        <span class="help-text" id="streetNumberHelp">Include unit or suite number</span>
+        <%= f.text_field :add_number, "aria-describedby" => "streetNumberHelp" %>
+      </div>
+      <div class="field">
+        <%= f.label :add_name, "Street name"%>
+        <%= f.text_field :add_name %>
+      </div>
+      <div class="field">
+        <%= f.label :add_type, "Street type"%>
+        <span class="help-text" id="streetTypeHelp">e.g. "Street", "Ave", "Blvd", etc</span>
+        <%= f.text_field :add_type, "aria-describedby" => "streetTypeHelp" %>
+      </div>
+      <div class="field">
+        <%= f.label :your_city, "City" %>
+        <%= f.text_field :your_city %>
+      </div>
+      <div class="field">
+        <%= f.label :postal, "Postal code" %>
+        <%= f.text_field :postal %>
+      </div>
 
       <div class="field">
         <%= f.label :phone %>
