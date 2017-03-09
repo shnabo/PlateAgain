@@ -21,6 +21,11 @@ class UsersController < ApplicationController
 
   def show
     @user = load_user
+    if current_user
+    @current_address = current_user.add_number + '+' + current_user.add_name + '+' + current_user.add_type + '+' + current_user.your_city + '+' + current_user.postal
+    else
+    @address = @user.add_number + '+' + @user.add_name + '+' + @user.add_type + '+' + @user.your_city + '+' + @user.postal
+    end
   end
 
   def new
@@ -68,7 +73,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :name, :email, :is_provider, :full_street_address, :phone, :description, :homepage, :photo, :registration, :password, :password_confirmation)
+    params.require(:user).permit(:username, :name, :email, :is_provider, :full_street_address, :phone, :description, :homepage, :photo, :registration, :password, :password_confirmation, :add_number, :add_name, :add_type, :your_city, :postal)
   end
 
 end

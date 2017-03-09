@@ -9,7 +9,7 @@
   </head>
 
   <body>
-    <div class="page row">
+    <div class="row">
 
       <header class="medium-4 columns">
         <h1 class="text-center small-centered"><%= link_to 'PlateAgain', root_url %></h1>
@@ -30,7 +30,9 @@
           <% if current_user %>
             <li><%= link_to 'My Dashboard', dashboard_path %></li>
             <li><%= link_to 'My Listings', my_listings_path(current_user) %></li>
+            <% if current_user.is_provider? %>
             <li><%= link_to 'Create Listing', new_listing_path %></li>
+            <% end %>
             <li><%= link_to 'Log out', logout_path, method: :delete %></li>
           <% else %>
             <li><%= link_to('Log in', login_path, {"data-open" => "login-reveal"})  %></li>
@@ -49,7 +51,11 @@
         <% flash.each do |key, message| %>
           <div class="flash-<%= key %>"><%= message %></div>
         <% end %>
-        <%= yield %>
+
+        <article class="yield">
+          <%= yield %>
+        </article>
+
       </main>
           </div>
 
