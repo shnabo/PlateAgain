@@ -1,7 +1,11 @@
 class ConversationsController < ApplicationController
 
   def index
-    @conversations = current_user.mailbox.conversations
+    if current_user
+      @conversations = current_user.mailbox.conversations
+    else
+    redirect_back(fallback_location: root_path)
+    end
   end
 
   def show
