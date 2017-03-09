@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
 
   def index
-   @listings = Listing.order(:available_until).where('available_until >= ? & available = ?', Date.today, false)
+   @listings = Listing.order(:available_until).where('available_until >= ? & available = ?', DateTime.now , false)
    end
 
   def show
