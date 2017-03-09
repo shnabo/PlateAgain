@@ -11,6 +11,15 @@
 <p>Email: <%= @user.email %></p>
 <p>Website: <%= link_to @user.homepage, @user.homepage %></p>
 <p><%= @user.description %></p>
+<div class="map">
+  <% if current_user.present? %>
+    <%= render 'maploggedin' %>
+  <% else %>
+    <%= render 'maploggedout' %>
+  <% end %>
+</div>
+
+
 </div>
 
 <div class="card">
@@ -28,9 +37,3 @@
     </p>
   <% end %>
 </div>
-
-<% if current_user.present? %>
-  <%= render 'maploggedin' %>
-<% else %>
-  <%= render 'maploggedout' %>
-<% end %>
