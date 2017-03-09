@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 User.create(is_provider: true,
             username: 'BurgerPriest',
             name: 'Burger Priest',
@@ -29,7 +28,7 @@ User.create(is_provider: false,
             email: 'dailybreadfoodbank@hotmail.com',
             password: 'password',
             password_confirmation: 'password',
-            add_number: '191'
+            add_number: '191',
             add_name: 'NewToronto',
             add_type: 'St',
             your_city: 'Toronto',
@@ -45,7 +44,7 @@ User.create(is_provider: false,
             email: 'covenanthouse@CH.com',
             password: 'password',
             password_confirmation: 'password',
-            add_number: '20 Gerrard St E, Toronto, ON M5B2P3',
+            add_number: '20',
             add_name: 'Gerrard',
             add_type: 'St',
             your_city: 'Toronto',
@@ -62,10 +61,8 @@ User.create(is_provider: true,
             email: 'rcyc@hotmail.com',
             password: 'password',
             password_confirmation: 'password',
-            add_number: '141 St George St., Toronto, ON M5R2L8',
             add_name: 'StGeorge',
             add_number: '141',
-            add_name: 'StGeorge'
             add_type: 'St',
             your_city:'Toronto',
             postal: 'M5R2L8',
