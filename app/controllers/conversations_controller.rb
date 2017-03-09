@@ -1,17 +1,21 @@
 class ConversationsController < ApplicationController
 
   def index
-    @conversations = User.last.mailbox.conversations
+    @conversations = current_user.mailbox.conversations
   end
 
   def show
-    @conversation = User.last.mailbox.conversations.find(params[:id])
+    @conversation = current_user.mailbox.conversations.find(params[:id])
   end
 
   def new
+    @recipients = User.all - [current_user]
   end
 
   def create
+      @recipient = User.find(params[:user_id])
+      receipt =  current_user.send_message(@recipient, params[:body], params[:subject])
+      redirect_to conversation_path(receipt.conversation)
   end
 
 end
