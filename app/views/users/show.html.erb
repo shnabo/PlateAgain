@@ -29,14 +29,18 @@
    <% end %>
 <div>
 <div class="card">
-  <h2>Add a Review:</h2>
   <%= form_for([@user, @user.comments.build]) do |f| %>
+    <% if current_user %>
+    <h2>Add a Review:</h2>
+    Reviews:
     <p>
-      Reviews:
       <%= f.text_field :comments %>
     </p>
     <p>
       <%= f.submit 'Submit Review' %>
     </p>
+    <% else %>
+    <p> You Are Currently Not Logged In! </p>
+    <% end %>
   <% end %>
 </div>
