@@ -7,12 +7,14 @@
       Available until: <%= listing.available_until_readable %>
       <%= link_to "Send Message", new_conversation_url %>
 
+
     <% if current_user.is_provider == false %>
       <%= form_for listing do | f | %>
         <%= f.hidden_field :claimer_id, :value => current_user.id %>
         <%= f.hidden_field :claimed, :value => true %>
         <%= f.submit "claim" %>
       <% end %>
+
     <% else %>
     </li>
 
