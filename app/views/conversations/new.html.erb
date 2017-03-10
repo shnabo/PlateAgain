@@ -1,17 +1,22 @@
 <h1> New Conversation </h1>
 
-<%= form_tag conversations_path, method: 'post' do %>
- <div class = "conversationfields">
-   <%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :name) %>
-   </div>
+<div class="card">
+  <%= form_tag conversations_path, method: 'post' do %>
+    <div class="field">
+      <%= label :user_id, "Start a conversation with:" %>
+      <%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :name) %>
+    </div>
 
-   <div class = "conversationfields">
-     <%= text_field_tag :subject, nil, placeholder: "Subject" %>
-   </div>
+    <div class="field">
+      <%= label :subject, "Subject:" %>
+      <%= text_field_tag :subject, nil %>
+    </div>
 
-   <div class = "conversationfields">
-     <%= text_area_tag :body, nil, placeholder: "Leave A Comment" %>
-   </div>
+    <div class="field">
+      <%= label :body, "Message:" %>
+      <%= text_area_tag :body, nil %>
+    </div>
 
-   <%= submit_tag "Send Message" %>
-   <% end %>
+    <%= submit_tag "Send Message" %>
+  <% end %>
+</div>
