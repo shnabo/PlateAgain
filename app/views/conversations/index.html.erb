@@ -1,11 +1,11 @@
 <h1> All Conversations </h1>
 
-  <% @conversations.each do | conversation | %>
+<%= link_to "New Conversation", new_conversation_path %>
 
-    <div class = "subject_name">
-      <%= link_to conversation.subject, conversation_path(conversation) %>
-    </div>
+<% @conversations.each do | conversation | %>
 
-  <% end %>
+  <div class="card">
+    <%= link_to conversation.subject, conversation_path(conversation) %>
+  </div>
 
-  <%= link_to "New Conversation", new_conversation_path %>
+<% end %>
