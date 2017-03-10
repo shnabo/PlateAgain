@@ -43,11 +43,11 @@ class User < ApplicationRecord
   end
 
   def self.find(input)
-    # if input.to_i != 0
-    #   super
-    # else
+    if input.to_i != 0
+      super
+    else
       find_by_username(input)
-    # end
+    end
   end
 
 end

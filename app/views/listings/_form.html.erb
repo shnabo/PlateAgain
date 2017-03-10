@@ -14,8 +14,8 @@
 
      <div class="field clearfix">
        <fieldset>
-         <%= l.radio_button :perishable, :checked => false %><%= l.label :perishable, "Non perishable", class: "required" %>
-         <%= l.radio_button :perishable, :checked => true %><%= l.label :perishable, "Perishable", class: "required" %>
+         <%= l.radio_button :perishable, false %><%= l.label :perishable, "Non perishable", class: "required" %>
+         <%= l.radio_button :perishable, true %><%= l.label :perishable, "Perishable", class: "required" %>
        </fieldset>
      </div>
 
@@ -40,6 +40,14 @@
        <%= l.label :notes %>
        <%= l.text_area :notes %>
      </div>
+
+     <div class="field clearfix">
+       <fieldset>
+         <%= l.radio_button :available, :checked => true %><%= l.label :Available, "Available To Public", class: "required" %>
+         <%= l.radio_button :available, :checked => false %><%= l.label :Available, "Not Available To Public", class: "required" %>
+       </fieldset>
+     </div>
+
      <div>
        <%= l.submit %>
      </div>

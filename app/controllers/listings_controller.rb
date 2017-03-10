@@ -13,7 +13,7 @@ class ListingsController < ApplicationController
     if current_user.is_provider
       @listing = Listing.new
     else
-      redirect_to :back
+      redirect_back(fallback_location: root_path)
     end
   end
 

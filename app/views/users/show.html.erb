@@ -5,7 +5,7 @@
     <%= image_tag @user.photo.url %>
   <% end %>
 
-
+<p><%= link_to "Send Message", new_conversation_url %></p>
 <p>Address: <%= @show_address %></p>
 <p>Phone: <%= @user.phone %></p>
 <p>Email: <%= @user.email %></p>
@@ -24,8 +24,11 @@
 
 <div class="card">
   <h2> Reviews </h2>
-   <%= render @user.comments %>
-
+   <% @user.comments.each do |comment| %>
+   <p> <%= comment.comments %> </p>
+   <% end %>
+<div>
+<div class="card">
   <h2>Add a Review:</h2>
   <%= form_for([@user, @user.comments.build]) do |f| %>
     <p>

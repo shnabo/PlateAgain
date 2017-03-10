@@ -3,7 +3,8 @@ class Listing < ApplicationRecord
 
   validate :expiry_date
   validate :available_until
-  validates_presence_of :item_name, :quantity, :perishable
+  validates_presence_of :item_name, :quantity
+  validates_inclusion_of :perishable, in: [true, false]
   validate :issue_expiry_date, :available_until_issue
 
   # Enable image upload with Carrierwave
