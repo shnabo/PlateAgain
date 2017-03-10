@@ -22,6 +22,17 @@ class User < ApplicationRecord
   #in order to add mailbox methods, send methods etc
   acts_as_messageable
 
+
+
+  def check_user_presence
+    if add_number && add_name && add_type && your_city && postal
+      return true
+
+    else
+      return false
+    end
+  end
+
   def mailboxer_email(object)
     nil
   end

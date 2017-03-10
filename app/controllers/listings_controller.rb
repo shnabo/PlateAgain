@@ -1,8 +1,8 @@
 class ListingsController < ApplicationController
 
   def index
-   @listings = Listing.order(:available_until).where('available_until >= ? & available = ?', DateTime.now , false)
-   end
+    @listings = Listing.where( 'available = ?', true ).where( 'available_until >= ?', Time.now )
+  end
 
   def show
     find_listing
@@ -20,7 +20,7 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(listings_params)
     @listing.user_id = current_user.id
-
+    @listing.available = true
     if @listing.save
       redirect_to dashboard_path(current_user.id)
     else
@@ -64,6 +64,7 @@ class ListingsController < ApplicationController
     :quantity,
     :perishable,
     :expiry_date,
+    :available,
     :available_until,
     :contact_name,
     :contact_phone,
