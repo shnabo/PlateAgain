@@ -5,22 +5,30 @@
     <%= image_tag @user.photo.url %>
   <% end %>
 
-<p><%= link_to "Send Message", new_conversation_url %></p>
-<p>Address: <%= @show_address %></p>
-<p>Phone: <%= @user.phone %></p>
-<p>Email: <%= @user.email %></p>
-<p>Website: <%= link_to @user.homepage, @user.homepage %></p>
-<p><%= @user.description %></p>
-<div class="map">
-  <% if current_user.present? %>
-    <%= render 'maploggedin' %>
+  <p><%= link_to "Send Message", new_conversation_url %></p>
+  <p>Address: <%= @address %></p>
+  <p>Phone: <%= @user.phone %></p>
+  <p>Email: <%= @user.email %></p>
+  <p>Website: <%= link_to @user.homepage, @user.homepage %></p>
+  <p><%= @user.description %></p>
+  <div class="map">
+    <% if current_user.present? %>
+      <%= render 'maploggedin' %>
+    <% else %>
+      <%= render 'maploggedout' %>
+    <% end %>
+  </div>
+
+</div>
+
+<% if @user.is_provider %>
+  <h2>Listings</h2>
+  <% if current_user %>
+    <%= render "listings/listings" %>
   <% else %>
-    <%= render 'maploggedout' %>
+    <p>You must be logged in to view listings. <%= link_to "Log in", login_path %> or <%= link_to "Sign up", new_user_path %></p>
   <% end %>
-</div>
-
-
-</div>
+<% end %>
 
 
 <h2> Reviews </h2>
