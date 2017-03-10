@@ -25,7 +25,7 @@ class User < ApplicationRecord
 
 
   def check_user_presence
-    if add_number && add_name && add_type && your_city && postal
+    if self.add_number && add_name && add_type && your_city && postal
       return true
 
     else
