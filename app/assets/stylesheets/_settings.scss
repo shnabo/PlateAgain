@@ -59,11 +59,20 @@ $foundation-palette: (
   alert: #cc4b37,
 );
 $color1: rgba(96, 114, 137, 1);
+$color1-light: scale-color($color1, $lightness: 60%);
+$color1-dark: scale-color($color1, $lightness: -60%);
 $color2: rgba(96, 158, 135, 1);
 $color2-light: scale-color($color2, $lightness: 60%);
+$color2-dark: scale-color($color2, $lightness: -60%);
 $color3: rgba(133, 173, 137, 1);
+$color3-light: scale-color($color3, $lightness: 60%);
+$color3-dark: scale-color($color3, $lightness: -60%);
 $color4: rgba(214, 216, 162, 1);
+$color4-light: scale-color($color4, $lightness: 60%);
+$color4-dark: scale-color($color4, $lightness: -60%);
 $color5: rgba(247, 255, 201, 1);
+$color5-light: scale-color($color5, $lightness: 60%);
+$color5-dark: scale-color($color5, $lightness: -60%);
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;

@@ -7,5 +7,17 @@
 .card {
   a {
     color: $color1;
+    text-shadow: none;
   }
+  h1, h2, h3 {
+    color: $body-font-color;
+    text-shadow: none;
+  }
+}
+
+a,
+h1,
+h2,
+h3 {
+  text-shadow: 2px 2px $color1-dark;
 }
