@@ -1,17 +1,20 @@
-<h1 = class "subjectHeader"> <%= @conversation.subject %> </h1>
+<h1>Conversation</h1>
 
-<% @conversation.receipts_for(current_user).each do | receipt | %>
-  <div>
-  <div = "username">  <%= receipt.message.sender.name %> commented:</div>
-  <p class = "comments"> <%= receipt.message.body %> </p>
-  </div>
+<div class="card">
+  <h2><%= @conversation.subject %></h2>
 
+  <% @conversation.receipts_for(current_user).each do | receipt | %>
+    <div>
+      <span="username">  <%= receipt.message.sender.name %> commented:</span>
+      <p class="comments"> <%= receipt.message.body %> </p>
+    </div>
   <% end %>
+</div>
 
-<%= form_tag conversation_messages_path(@conversation), method: 'post' do %>
-  <div class = "messagebox">
+<div class="card">
+  <%= form_tag conversation_messages_path(@conversation), method: 'post' do %>
+    <label>Reply:</label>
     <%= text_area_tag :body %>
-  </div>
-
-  <%= submit_tag %>
+    <%= submit_tag "Save message" %>
   <% end %>
+</div>
