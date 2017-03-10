@@ -19,16 +19,15 @@ class UsersController < ApplicationController
     @listings = @user.listings
   end
 
-  def show
-    @user = load_user
+ def show
+   @user = load_user
+   if current_user
+     @current_address = current_user.add_number + '+' + current_user.add_name + '+' + current_user.add_type + '+' + current_user.your_city + '+' + current_user.postal
+     @address = @user.add_number + '+' + @user.add_name + '+' + @user.add_type + '+' + @user.your_city + '+' + @user.postal
 
-      if current_user
-        @current_address = current_user.add_number + '+' + current_user.add_name + '+' + current_user.add_type + '+' + current_user.your_city + '+' + current_user.postal
-      end
-
-        if @user.check_user_presence
-          @address = @user.add_number.present? + '+' + @user.add_name + '+' + @user.add_type + '+' + @user.your_city + '+' + @user.postal
-        end
+   else
+     @address = @user.add_number + '+' + @user.add_name + '+' + @user.add_type + '+' + @user.your_city + '+' + @user.postal
+    end
   end
 
   def new
