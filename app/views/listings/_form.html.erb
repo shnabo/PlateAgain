@@ -43,8 +43,8 @@
 
      <div class="field clearfix">
        <fieldset>
-         <%= l.radio_button :available, :checked => true %><%= l.label :Available, "Available To Public", class: "required" %>
-         <%= l.radio_button :available, :checked => false %><%= l.label :Available, "Not Available To Public", class: "required" %>
+         <%= l.radio_button :available, true %><%= l.label :Available, "Available To Public", class: "required" %>
+         <%= l.radio_button :available, false %><%= l.label :Available, "Not Available To Public", class: "required" %>
        </fieldset>
      </div>
 

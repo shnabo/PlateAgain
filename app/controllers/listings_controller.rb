@@ -2,7 +2,7 @@ class ListingsController < ApplicationController
 
   def index
    @listings = Listing.order(:available_until).where('available_until >= ? & available = ?', DateTime.now, false)
-   end
+  end
 
   def show
     find_listing
@@ -24,6 +24,12 @@ class ListingsController < ApplicationController
       @listing.perishable = true
     elsif listings_params[:perishable] == "false"
       @listing.perishable = false
+    end
+
+    if listings_params[:available] == "true"
+      @listing.available = true
+    elsif listings_params[:available] == "false"
+      @listing.available = false
     end
 
     if @listing.save
@@ -70,6 +76,7 @@ class ListingsController < ApplicationController
     :perishable,
     :expiry_date,
     :available_until,
+    :available,
     :contact_name,
     :contact_phone,
     :contact_email,
