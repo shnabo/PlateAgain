@@ -34,7 +34,7 @@ class UsersController < ApplicationController
                           @user.your_city,
                           @user.postal].join("+")
 
-   else
+    else
      @address = @user.add_number + '+' + @user.add_name + '+' + @user.add_type + '+' + @user.your_city + '+' + @user.postal
     end
   end
