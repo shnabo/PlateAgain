@@ -1,40 +1,49 @@
-<div class="card">
-  <h1><%= @user.name %></h1>
+<h1><%= @user.name %></h1>
 
-  <% if @user.photo.present? %>
-    <%= image_tag @user.photo.url %>
+<ul class="tabs" data-tabs data-deep-link="true" data-update-history="true" id="user-page-tabs">
+  <li class="tabs-title is-active"><a href="#details" aria-selected="true">Details</a></li>
+  <% if @user.is_provider %>
+    <li class="tabs-title"><a href="#listings">Listings</a></li>
   <% end %>
+  <li class="tabs-title"><a href="#reviews">Reviews</a></li>
+</ul>
 
-<p><%= link_to "Send Message", new_conversation_url %></p>
-<p>Address: <%= @show_address %></p>
-<p>Phone: <%= @user.phone %></p>
-<p>Email: <%= @user.email %></p>
-<p>Website: <%= link_to @user.homepage, @user.homepage %></p>
-<p><%= @user.description %></p>
-<div class="map">
-  <% if current_user.present? %>
-    <%= render 'maploggedin' %>
-  <% else %>
-    <%= render 'maploggedout' %>
-  <% end %>
-</div>
+<div class="tabs-content" data-tabs-content="user-page-tabs">
+  <%### DETAILS %>
+  <section class="card tabs-panel is-active" id="details">
 
-
-</div>
-
-
-<h2> Reviews </h2>
-<%= render 'comments/comment' %>
-
-<div class="card">
-  <%= form_for([@user, @user.comments.build]) do |f| %>
-    <% if current_user %>
-      <h3>Add a Review:</h3>
-      <%= f.text_area :comments %>
-      <%= f.hidden_field :reviewer_id, value: current_user.id %>
-      <%= f.submit 'Submit Review' %>
-    <% else %>
-      <p> You must be logged in to post a review. <%= link_to "Log in", login_path %> or <%= link_to "Sign up", new_user_path %></p>
+    <% if @user.photo.present? %>
+      <%= image_tag @user.photo.url %>
     <% end %>
+
+    <p><%= link_to "Send Message", new_conversation_url %></p>
+    <p>Address: <%= @address %></p>
+    <p>Phone: <%= @user.phone %></p>
+    <p>Email: <%= @user.email %></p>
+    <p>Website: <%= link_to @user.homepage, @user.homepage %></p>
+    <p><%= @user.description %></p>
+
+    <div class="map">
+      <% if current_user.present? %>
+        <%= render 'maploggedin' %>
+      <% else %>
+        <%= render 'maploggedout' %>
+      <% end %>
+    </div>
+  </section>
+
+  <%### LISTINGS %>
+  <% if @user.is_provider %>
+    <section class="tabs-panel" id="listings">
+      <%= render "listings/listings" %>
+    </section>
   <% end %>
+
+  <%### REVIEWS %>
+  <section class="tabs-panel" id="reviews">
+    <%= render 'comments/comment' %>
+    <%= render 'comments/new' %>
+  </section>
+
+
 </div>
