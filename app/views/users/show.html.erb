@@ -1,6 +1,8 @@
 <header class="user-header">
   <% if @user.photo.present? %>
     <%= image_tag @user.photo %>
+  <% else %>
+    <%= image_tag "http://lorempixel.com/g/800/300/abstract" %>
   <% end %>
 
   <div class="user-header-text">
