@@ -1,4 +1,5 @@
 <div class="card">
+  <strong><%= @listing.user.name %> is offering:</strong>
   <h1><%= @listing.item_name %></h1>
 
   <%if @listing.picture.present? %>
@@ -23,7 +24,7 @@
     <p>Notes: <%= @listing.notes %></p>
   <% end %>
 
-  <h3>For more information:</h3>
+  <strong>For more information:</strong>
   <p>
     <% if @listing.contact_name.present? %>
       Contact person: <%= @listing.contact_name %><br />
@@ -34,7 +35,7 @@
     <% if @listing.contact_email.present? %>
       Email: <%= @listing.contact_email %><br />
     <% end %>
-    <%= link_to "Send a message", new_conversation_path %>
+    <%= link_to "Send a message to #{@listing.user.name}", new_conversation_path(user_id: @listing.user.id, subject: @listing.item_name) %>
   </p>
 
   <strong>Listed until: </strong>
