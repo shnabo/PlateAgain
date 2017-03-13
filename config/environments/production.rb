@@ -64,10 +64,12 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: "plateagaintoronto@gmail.com",
     port: 587,
+    domain: "gmail.com",
     authentication: "plain",
     user_name: ["plateagaintoronto@gmail.com"],
     password: ["bitmakersasps"],
-    enable_starttls_auto: true
+    enable_starttls_auto: true,
+    config.action_mailer.default_url_options = { host: "https://plateagain.herokuapp.com/"}
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
