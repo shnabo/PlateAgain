@@ -1,22 +1,27 @@
-<h1><%= @user.name %></h1>
-
-<ul class="tabs" data-tabs data-deep-link="true" data-update-history="true" id="user-page-tabs">
-  <li class="tabs-title is-active"><a href="#details" aria-selected="true">Details</a></li>
-  <% if @user.is_provider %>
-    <li class="tabs-title"><a href="#listings">Listings</a></li>
+<header class="user-header">
+  <% if @user.photo.present? %>
+    <%= image_tag @user.photo %>
+  <% else %>
+    <%= image_tag "http://lorempixel.com/g/800/300/abstract" %>
   <% end %>
-  <li class="tabs-title"><a href="#reviews">Reviews</a></li>
-</ul>
+
+  <div class="user-header-text">
+    <h1><%= @user.name %></h1>
+    <ul class="tabs" data-tabs data-deep-link="true" data-update-history="true" id="user-page-tabs">
+      <li class="tabs-title is-active"><a href="#details" aria-selected="true">Details</a></li>
+      <% if @user.is_provider %>
+        <li class="tabs-title"><a href="#listings">Listings</a></li>
+      <% end %>
+      <li class="tabs-title"><a href="#reviews">Reviews</a></li>
+    </ul>
+  </div>
+</header>
 
 <div class="tabs-content" data-tabs-content="user-page-tabs">
   <%### DETAILS %>
   <section class="card tabs-panel is-active" id="details">
 
-    <% if @user.photo.present? %>
-      <%= image_tag @user.photo.url %>
-    <% end %>
-
-    <p><%= link_to "Send Message", new_conversation_url %></p>
+    <p><%= link_to "Send Message", new_conversation_url(user_id: @user.id) %></p>
     <p>Address: <%= @address %></p>
     <p>Phone: <%= @user.phone %></p>
     <p>Email: <%= @user.email %></p>
