@@ -2,55 +2,66 @@
   <%= form_for [@user, @listing] do |l| %>
     <%= render "shared/errors", object: @listing %>
 
-     <div class="field">
-       <%= l.label :item_name, class: "required" %>
-       <%= l.text_field :item_name, required: true %>
-     </div>
+    <fieldset class="fieldset">
+      <legend>Item description</legend>
+      <div class="field">
+        <%= l.label :item_name, class: "required" %>
+        <%= l.text_field :item_name, required: true, placeholder: "e.g. Hot dog buns" %>
+      </div>
 
-     <div class="field">
-       <%= l.label :quantity, class: "required" %>
-       <%= l.text_field :quantity, required: true %>
-     </div>
+      <div>
+        <%= l.label :quantity, class: "required" %>
+        <%= l.text_field :quantity, required: true, placeholder: "e.g. 6 dozen" %>
+      </div>
 
-     <div class="field clearfix">
-       <fieldset>
-         <%= l.radio_button :perishable, false %><%= l.label :perishable, "Non perishable", class: "required" %>
-         <%= l.radio_button :perishable, true %><%= l.label :perishable, "Perishable", class: "required" %>
-       </fieldset>
-     </div>
+      <div>
+        <fieldset>
+          <%= l.radio_button :perishable, false %><%= l.label :perishable, "Non perishable", class: "required" %>
+          <%= l.radio_button :perishable, true %><%= l.label :perishable, "Perishable", class: "required" %>
+        </fieldset>
+      </div>
 
-     <fieldset class="field">
-       <%= l.label :expiry_date %>
-       <p class="help-text" id="expiryDateHelp">Printed "best before" date (or best estimate, if none available).</p>
-       <%= l.date_select :expiry_date, "aria-describedby" => "expiryDateHelp" %>
-     </fieldset>
+      <div >
+        <%= l.label :expiry_date %>
+        <p class="help-text" id="expiryDateHelp">Printed "best before" date (or best estimate, if none available).</p>
+        <%= l.date_select :expiry_date, "aria-describedby" => "expiryDateHelp" %>
+      </div>
+    </fieldset>
 
-     <fieldset class="field">
-       <%= l.label :available_until, class: "required" %>
-       <p class="help-text" id="availableUntilHelp">This item will be automatically removed from listings after given day &amp; time</p>
-       <%= l.datetime_select :available_until, ampm: true, "aria-describedby" => "availableUntilHelp"  %>
-     </fieldset>
+    <fieldset class="fieldset">
+      <legend>Who should acceptors contact about this listing?</legend>
+      <%= l.label :contact_name %>
+      <%= l.text_field :contact_name %>
+      <%= l.label :contact_email %>
+      <%= l.text_field :contact_email %>
+      <%= l.label :contact_phone %>
+      <%= l.text_field :contact_phone %>
+      <p class="help-text">Note: Users can also message you via in-app conversations.</p>
+    </fieldset>
 
-     <div class="field">
-       <%= l.label :picture %>
-       <%= l.file_field :picture %>
-     </div>
+    <fieldset class="ieldset">
+      <legend>Add a picture</legend>
+      <div onclick="document.getElementById('picture-link').disabled = false; document.getElementById('picture-upload').disabled = true;">
+      Link to a picture: <%= l.text_field :picture, id: "picture-link" %></div>
+      <strong>OR</strong>
+      <div onclick="document.getElementById('picture-upload').disabled = false; document.getElementById('picture-link').disabled = true;">
+      Upload a picture: <%= l.file_field :picture, id: "picture-upload", disabled: "disabled" %></div>
+    </fieldset>
 
-     <div class="field">
-       <%= l.label :notes %>
-       <%= l.text_area :notes %>
-     </div>
+    <div class="field">
+      <%= l.label :notes %>
+      <%= l.text_area :notes %>
+    </div>
 
-     <div class="field clearfix">
-       <fieldset>
-         <%= l.radio_button :available, true %><%= l.label :Available, "Available To Public", class: "required" %>
-         <%= l.radio_button :available, false %><%= l.label :Available, "Not Available To Public", class: "required" %>
-       </fieldset>
-     </div>
+    <div class="field">
+      <%= l.label :available_until, class: "required" %>
+      <p class="help-text" id="availableUntilHelp">This item will be automatically removed from listings after given day &amp; time</p>
+      <%= l.datetime_select :available_until, ampm: true, "aria-describedby" => "availableUntilHelp"  %>
+    </div>
 
-     <div>
-       <%= l.submit %>
-     </div>
+    <div>
+      <%= l.submit %>
+    </div>
 
   <% end %>
 
