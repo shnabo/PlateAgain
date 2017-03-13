@@ -13,7 +13,7 @@
   <section class="card tabs-panel is-active" id="details">
 
     <% if @user.photo.present? %>
-      <%= image_tag @user.photo.url %>
+      <%= image_tag @user.photo %>
     <% end %>
 
     <p><%= link_to "Send Message", new_conversation_url %></p>

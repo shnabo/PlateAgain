@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170313150025) do
+ActiveRecord::Schema.define(version: 20170313150712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,6 +125,8 @@ ActiveRecord::Schema.define(version: 20170313150025) do
     t.string   "add_type"
     t.string   "your_city"
     t.string   "postal"
+    t.string   "photo_cache"
+    t.string   "remote_photo_url"
   end
 
 end

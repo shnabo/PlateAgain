@@ -6,10 +6,10 @@
       <legend>Set up your account:</legend>
       <div class="field">
         <label class="required">User type:</label>
-          <%= f.label :is_provider, "Provider: I want to offer available food", :value => true %>
           <%= f.radio_button :is_provider, true %>
+          <%= f.label :is_provider, "Provider: I want to offer available food", :value => true %><br />
+          <%= f.radio_button :is_provider, false %>
           <%= f.label :is_provider, "Accepter: I will accept food for a meal program", :value => false %>
-          <%= f.radio_button :is_provider, false %> 
       </div>
 
       <div class="field">
@@ -17,6 +17,7 @@
         <span class="help-text" id="usernameHelp">Username cannot contain any spaces. Make sure it's descriptive, since it will show in your profile URL.</span>
         <%= f.text_field :username, "aria-describedby" => "usernameHelp" %>
       </div>
+
       <div class="field">
         <%= f.label :email, class: "required" %>
         <%= f.email_field :email %>
@@ -41,7 +42,7 @@
       </div>
 
       <div class="field">
-        <%= f.label :registration, "Organization registration number" %>
+        <%= f.label :registration, "Business or organization registration number" %>
         <%= f.text_field :registration %>
       </div>
 
@@ -50,19 +51,24 @@
         <span class="help-text" id="streetNumberHelp">Include unit or suite number</span>
         <%= f.text_field :add_number, "aria-describedby" => "streetNumberHelp" %>
       </div>
+
       <div class="field">
         <%= f.label :add_name, "Street name"%>
         <%= f.text_field :add_name %>
       </div>
+
       <div class="field">
         <%= f.label :add_type, "Street type"%>
         <span class="help-text" id="streetTypeHelp">e.g. "Street", "Ave", "Blvd", etc</span>
         <%= f.text_field :add_type, "aria-describedby" => "streetTypeHelp" %>
       </div>
+
       <div class="field">
         <%= f.label :your_city, "City" %>
-        <%= f.text_field :your_city %>
+        <span class="help-text" id="cityHelp">Must be within the GTA.</span>
+        <%= f.text_field :your_city, "aria-describedby" => "cityHelp" %>
       </div>
+
       <div class="field">
         <%= f.label :postal, "Postal code" %>
         <%= f.text_field :postal %>
@@ -78,10 +84,16 @@
         <%= f.text_area :description %>
       </div>
 
-      <div class="field">
-        <%= f.label :photo %>
-        <%= f.file_field :photo %>
-      </div>
+    </fieldset>
+
+
+    <fieldset>
+      <legend>Add a photo</legend>
+      <div onclick="document.getElementById('photo-link').disabled = false; document.getElementById('photo-upload').disabled = true;">
+      Link to a photo: <%= f.text_field :remote_photo_url, id: "photo-link" %></div>
+      <strong>OR</strong>
+      <div onclick="document.getElementById('photo-upload').disabled = false; document.getElementById('photo-link').disabled = true;">
+      Upload a photo: <%= f.file_field :photo, id: "photo-upload", disabled: "disabled" %></div>
     </fieldset>
 
 
