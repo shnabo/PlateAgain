@@ -2,9 +2,8 @@
   <h1><%= @listing.item_name %></h1>
 
   <%if @listing.picture.present? %>
-    <%= image_tag @listing.picture.url %>
+    <%= image_tag @listing.picture %>
   <% end %>
-  <%= image_tag @listing.picture %>
 
   <p>Quantity: <%= @listing.quantity %></p>
 
@@ -20,19 +19,19 @@
     <% end %>
   </p>
 
-  <% if @listing.notes  %>
+  <% if @listing.notes.present? %>
     <p>Notes: <%= @listing.notes %></p>
   <% end %>
 
   <h3>For more information:</h3>
   <p>
-    <% if @listing.contact_name %>
+    <% if @listing.contact_name.present? %>
       Contact person: <%= @listing.contact_name %><br />
     <% end %>
-    <% if @listing.contact_phone  %>
+    <% if @listing.contact_phone.present? %>
       Phone: <%= @listing.contact_phone %><br />
     <% end %>
-    <% if @listing.contact_email %>
+    <% if @listing.contact_email.present? %>
       Email: <%= @listing.contact_email %><br />
     <% end %>
     <%= link_to "Send a message", new_conversation_path %>

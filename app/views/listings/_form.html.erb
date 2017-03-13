@@ -42,7 +42,7 @@
     <fieldset class="fieldset">
       <legend>Add a picture</legend>
       <div onclick="document.getElementById('picture-link').disabled = false; document.getElementById('picture-upload').disabled = true;">
-      Link to a picture: <%= l.text_field :picture, id: "picture-link" %></div>
+      Link to a picture: <%= l.text_field :remote_picture_url, id: "picture-link" %></div>
       <strong>OR</strong>
       <div onclick="document.getElementById('picture-upload').disabled = false; document.getElementById('picture-link').disabled = true;">
       Upload a picture: <%= l.file_field :picture, id: "picture-upload", disabled: "disabled" %></div>
