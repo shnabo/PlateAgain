@@ -1,9 +1,22 @@
+.fieldset {
+  legend {
+    background: none;
+  }
+}
+legend {
+  background: none;
+  color: $color1;
+  border-bottom: 2px solid $color1;
+}
 select {
   background-image: none;
 }
 .field {
   margin-bottom: 2rem;
 }
-.required:after {
-  content: " *"
+.required {
+  font-weight: bold;
+  &:after {
+    content: " *"
+  }
 }
