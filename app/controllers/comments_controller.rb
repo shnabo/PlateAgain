@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
 
   def show
     find_user
-    # find_reviewer
   end
 
   def create
@@ -34,9 +33,5 @@ private
   def find_user
     @user = User.find(params[:user_id])
   end
-  #
-  # def find_reviewer
-  #   reviewer = User.find(params[:reviewer_id])
-  # end
 
 end

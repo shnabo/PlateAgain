@@ -16,11 +16,12 @@ class UsersController < ApplicationController
 
   def listings
     load_user
-    @listings = @user.listings
+    load_user_listings
   end
 
  def show
-   @user = load_user
+   load_user
+   load_user_listings
    if current_user
      @current_address = [current_user.add_number,
                          current_user.add_name,
@@ -57,11 +58,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = load_user
+    load_user
   end
 
   def update
-    @user = load_user
+    load_user
 
     if @user.update_attributes(user_params)
       redirect_to dashboard_path, notice: "Profile updated!"
@@ -73,7 +74,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @user = current_user
-    @listings = @user.listings
+    load_user_listings
   end
 
 
@@ -83,8 +84,30 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def load_user_listings
+    @listings = @user.listings
+  end
+
   def user_params
-    params.require(:user).permit(:username, :name, :email, :is_provider, :full_street_address, :phone, :description, :homepage, :photo, :registration, :password, :password_confirmation, :add_number, :add_name, :add_type, :your_city, :postal)
+    params.require(:user).permit(:username,
+                                 :name,
+                                 :email,
+                                 :is_provider,
+                                 :full_street_address,
+                                 :phone,
+                                 :description,
+                                 :homepage,
+                                 :photo,
+                                 :photo_cache,
+                                 :remote_photo_url,
+                                 :registration,
+                                 :password,
+                                 :password_confirmation,
+                                 :add_number,
+                                 :add_name,
+                                 :add_type,
+                                 :your_city,
+                                 :postal)
   end
 
 end
