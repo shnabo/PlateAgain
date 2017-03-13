@@ -14,15 +14,20 @@ class ConversationsController < ApplicationController
 
   def new
     if (params[:user_id]).present?
-      @recipients = User.where("id = ?", params[:user_id])
+      @recipient = User.find(params[:user_id])
     else
       @recipients = User.all - [current_user]
+    end
+
+    if (params[:subject]).present?
+      @subject = params.fetch(:subject)
     end
   end
 
   def create
     @recipient = User.find(params[:user_id])
     receipt =  current_user.send_message(@recipient, params[:body], params[:subject])
+    flash[:notice] = "Message to #{@recipient} sent successfully"
     redirect_to conversation_path(receipt.conversation)
   end
 

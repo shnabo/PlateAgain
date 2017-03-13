@@ -4,17 +4,21 @@
   <%= form_tag conversations_path, method: 'post' do %>
     <div class="field">
       <%= label :user_id, "Start a conversation with:" %>
-      <%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :name) %>
+      <% if :user_id %>
+        <strong><%= @recipient.name %></strong>
+      <% else %>
+        <%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :name) %>
+      <% end %>
     </div>
 
     <div class="field">
       <%= label :subject, "Subject:" %>
-      <%= text_field_tag :subject, nil %>
+      <%= text_field_tag :subject, "Your listing: #{@subject}"%>
     </div>
 
     <div class="field">
       <%= label :body, "Message:" %>
-      <%= text_area_tag :body, nil %>
+      <%= text_area_tag :body %>
     </div>
 
     <%= submit_tag "Send Message" %>
