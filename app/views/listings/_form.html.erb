@@ -29,7 +29,7 @@
     </fieldset>
 
     <fieldset class="fieldset">
-      <legend>Who should acceptors contact about this listing?</legend>
+      <legend>Contact person for this listing</legend>
       <%= l.label :contact_name %>
       <%= l.text_field :contact_name %>
       <%= l.label :contact_email %>
@@ -39,7 +39,7 @@
       <p class="help-text">Note: Users can also message you via in-app conversations.</p>
     </fieldset>
 
-    <fieldset class="ieldset">
+    <fieldset class="fieldset">
       <legend>Add a picture</legend>
       <div onclick="document.getElementById('picture-link').disabled = false; document.getElementById('picture-upload').disabled = true;">
       Link to a picture: <%= l.text_field :picture, id: "picture-link" %></div>
