@@ -40,7 +40,12 @@
     </div>
   </section>
 
-  <%= render 'test_map' %>
+  <h3> Nearby Locations </h3>
+  <ul>
+  <% for user in @user.nearbys(30) %>
+    <li><%= link_to user.useraddress, user %> <%= user.name %> (<%= user.distance.round(2) %> miles) </li>
+  <% end %>
+  </ul>
 
   <%### LISTINGS %>
   <% if @user.is_provider %>
