@@ -14,7 +14,8 @@ default: &default
 development:
   adapter: postgresql
   encoding: utf8
-  database: plateagain_development
+  database: plateagain_development.js
+  
   pool: 5
   timeout: 5000
 
