@@ -35,9 +35,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'sorcery'
 #for GOOGLE MAPS api
-# gem 'geocoder'
+gem 'geocoder'
 # #google MAPS
-# gem 'gmaps4rails'
+gem 'gmaps4rails'
 gem 'carrierwave', '~> 1.0'
 
 

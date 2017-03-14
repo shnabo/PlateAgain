@@ -21,6 +21,10 @@ class UsersController < ApplicationController
 
  def show
    load_user
+    @hash = Gmaps4rails.build_markers(@user) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
+    end
    load_user_listings
    if current_user
      @current_address = current_user.add_number + '+' + current_user.add_name + '+' + current_user.add_type + '+' + current_user.your_city + '+' + current_user.postal
@@ -29,6 +33,7 @@ class UsersController < ApplicationController
     else
      @address = @user.add_number + '+' + @user.add_name + '+' + @user.add_type + '+' + @user.your_city + '+' + @user.postal
     end
+
   end
 
   def new
@@ -97,6 +102,8 @@ class UsersController < ApplicationController
                                  :add_number,
                                  :add_name,
                                  :add_type,
+                                 :latitude,
+                                 :longitude,
                                  :your_city,
                                  :postal)
   end

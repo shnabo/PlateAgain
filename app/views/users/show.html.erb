@@ -25,6 +25,9 @@
     <p>Address: <%= @address %></p>
     <p>Phone: <%= @user.phone %></p>
     <p>Email: <%= @user.email %></p>
+    <p>Lat: <%= @user.latitude %></p>
+    <p>Long: <%= @user.longitude %></p>
+
     <p>Website: <%= link_to @user.homepage, @user.homepage %></p>
     <p><%= @user.description %></p>
 
@@ -36,6 +39,8 @@
       <% end %>
     </div>
   </section>
+
+  <%= render 'test_map' %>
 
   <%### LISTINGS %>
   <% if @user.is_provider %>
