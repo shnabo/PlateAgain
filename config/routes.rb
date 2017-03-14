@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   get ':id/listings',  to: 'users#listings', as: 'my_listings'
   get 'dashboard', to: 'users#dashboard', as: 'dashboard'
 
-  resources :listings
+  resources :listings do
+    resources :conversations
+  end
 
   resources :users do
     resources :comments

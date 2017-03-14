@@ -4,17 +4,17 @@
   <%= form_tag conversations_path, method: 'post' do %>
     <div class="field">
       <%= label :user_id, "Start a conversation with:" %>
+        <strong>
+        <div>
+          <%= Listing.find(params["listing_id"]).user.name %>
+        </div> </strong>
 
-      <% if :user_id.present? %>
-        <strong><%= @recipient %></strong>
-      <% else %>
-        <%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :name) %>
-      <% end %>
     </div>
 
     <div class="field">
       <%= label :subject, "Subject:" %>
-      <%= text_field_tag :subject, "Your listing: #{@subject}"%>
+
+      <%= text_field_tag :subject, @subject %>
     </div>
 
     <div class="field">
