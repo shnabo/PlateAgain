@@ -24,6 +24,7 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(listings_params)
     @listing.user_id = current_user.id
+    @listing.available = "true"
 
     if listings_params[:perishable] == "true"
       @listing.perishable = true
