@@ -5,7 +5,7 @@
     <div class="field">
       <%= label :user_id, "Start a conversation with:" %>
       <% if :user_id %>
-        <strong><%= @recipient.name %></strong>
+        <strong><%= current_user.name %></strong>
       <% else %>
         <%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :name) %>
       <% end %>
