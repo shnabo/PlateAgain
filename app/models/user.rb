@@ -21,8 +21,12 @@ class User < ApplicationRecord
   #all of email methods needed
   #in order to add mailbox methods, send methods etc
   acts_as_messageable
+  geocoded_by :useraddress
+  after_validation :geocode
 
-
+  def useraddress
+    [add_number, add_name, add_type, your_city, postal].compact.join(' ')
+  end
 
   def check_user_presence
     if self.add_number && add_name && add_type && your_city && postal
@@ -51,3 +55,10 @@ class User < ApplicationRecord
   end
 
 end
+# t.float    "latitude"
+# t.float    "longitude"
+# t.string   "add_number"
+# t.string   "add_name"
+# t.string   "add_type"
+# t.string   "your_city"
+# t.string   "postal"
