@@ -11,9 +11,9 @@ Rails.application.routes.draw do
   get 'acceptors', to: 'users#acceptors'
   get ':id/listings',  to: 'users#listings', as: 'my_listings'
   get 'dashboard', to: 'users#dashboard', as: 'dashboard'
-
+  delete  '/users/:user_id/comments/:id', to: 'comments#destroy', as: 'delete_comment'
   resources :listings
-  
+
   resources :users do
     resources :comments
   end

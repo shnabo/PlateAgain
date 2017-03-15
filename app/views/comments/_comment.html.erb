@@ -1,7 +1,16 @@
 <% @user.comments.each do |c| %>
+<% if current_user.name === c.reviewer.name %>
+  <span><%= c.reviewer.name %><%= c.user_id %>  | <%= c.created_at %></span>
+  <div class="card">
+    <p class="comment"><%= c.comments %>
+        <%= link_to "Edit"  %>
+        <%= link_to "Delete", delete_comment_path(@user, c), :method => :delete %>
+    </p>
+  </div>
+<% else %>
   <span><%= c.reviewer.name %>  | <%= c.created_at %></span>
   <div class="card">
     <p class="comment"><%= c.comments %></p>
   </div>
-
+  <% end %>
 <% end %>
