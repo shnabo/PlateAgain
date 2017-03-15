@@ -47,7 +47,7 @@ class ListingsController < ApplicationController
   def update
     find_listing
     if @listing.update(listings_params)
-      redirect_to dashboard_path(current_user.id)
+      # redirect_to dashboard_path(current_user.id)
     else
       render :edit
     end
