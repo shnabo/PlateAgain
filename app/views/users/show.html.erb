@@ -22,11 +22,10 @@
   <section class="card tabs-panel is-active" id="details">
 
     <p><%= link_to "Send Message", new_conversation_url(user_id: @user.id) %></p>
-    <p>Address: <%= @address %></p>
+    <p>Address: <%= @show_address %></p>
     <p>Phone: <%= @user.phone %></p>
     <p>Email: <%= @user.email %></p>
-    <p>Lat: <%= @user.latitude %></p>
-    <p>Long: <%= @user.longitude %></p>
+
 
     <p>Website: <%= link_to @user.homepage, @user.homepage %></p>
     <p><%= @user.description %></p>
@@ -40,7 +39,14 @@
     </div>
   </section>
 
-  <%= render 'test_map' %>
+  <h3> Nearby Locations </h3>
+  <ul>
+  <% for user in @user.nearbys(30) %>
+    <li><%= link_to user.useraddress, user %> <%= user.name %> (<%= user.distance.round(2) %> miles) </li>
+  <% end %>
+  </ul>
+
+
 
   <%### LISTINGS %>
   <% if @user.is_provider %>

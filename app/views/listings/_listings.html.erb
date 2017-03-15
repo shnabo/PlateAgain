@@ -15,6 +15,7 @@
             <%= link_to "Delete this listing", listing, :method => :delete, :confirm => "Are you sure?", :title => "Delete #{listing.item_name}"  %>
           <% elsif current_user != @user %>
             <%= link_to "Send Message", new_conversation_url(listing.user.id) %>
+
           <% end %>
 
           <% if current_user.is_provider == false %>
