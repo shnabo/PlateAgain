@@ -4,11 +4,11 @@
   <%= form_tag conversations_path, method: 'post' do %>
     <div class="field">
       <%= label :user_id, "Start a conversation with:" %>
-      <% if :user_id %>
-        <strong><%= @recipient.name %></strong>
-      <% else %>
+      <% if request.referer == conversations_url %>
         <%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :name) %>
-      <% end %> 
+      <% else %>
+        <strong><%= @recipient.name %></strong>
+      <% end %>
     </div>
 
     <div class="field">
