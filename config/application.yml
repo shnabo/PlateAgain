@@ -11,3 +11,8 @@
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 gmail_username: 'plateagaintoronto@gmail.com'
 gmail_password: 'bitmakersasps'
+
+
+# for file storage on AWS S3
+AWS_ACCESS_KEY_ID: 'AKIAJ45YQYW3QQZB5H5A'
+AWS_SECRET_ACCESS_KEY: '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'

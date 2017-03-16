@@ -38,7 +38,10 @@ gem 'sorcery'
 gem 'geocoder'
 # #google MAPS
 gem 'gmaps4rails'
+
+# for image uploads
 gem 'carrierwave', '~> 1.0'
+gem 'fog-aws'
 
 
 gem 'underscore-rails'
