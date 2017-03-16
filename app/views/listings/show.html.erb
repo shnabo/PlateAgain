@@ -45,3 +45,18 @@
     <%= link_to "Edit this listing", edit_listing_path %> |
     <%= link_to "Delete this listing", @listing, :method => :delete, :confirm => "Are you sure?", :title => "Delete #{@listing.item_name}"  %>
   <% end %>
+
+
+<h3> Nearby Listings </h3>
+  <ul>
+  <% for user in current_user.nearbys(30) %>
+<li><% user.listings.each do |listing| %>
+     <%= listing.item_name %>
+     <%= listing.quantity %>
+     <%= listing.expiry_date %>
+     <%= listing.available_until %>
+     <%= link_to listing.user.useraddress, listing %>
+   </li>
+   </ul>>
+    <% end %>
+  <% end %>
