@@ -1,14 +1,1 @@
-<h1> EDIT PAGE </h1>
-
-<div class="card">
-  <% if current_user %>
-    <%= form_for([@user, @comment]) do |f| %>
-      <h3>Add a Review:</h3>
-      <%= f.text_area :comments %>
-      <%= f.hidden_field :reviewer_id, value: current_user.id %>
-      <%= f.submit 'Submit Review' %>
-    <% end %>
-<% else %>
-      <p> You must be logged in to post a review. <%= link_to "Log in", login_path %> or <%= link_to "Sign up", new_user_path %></p>
-  <% end %>
-</div>
+<%= render 'new' %>

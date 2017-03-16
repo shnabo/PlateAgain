@@ -1,16 +1,15 @@
 <% @user.comments.each do |c| %>
-<% if current_user.name === c.reviewer.name %>
-  <span><%= c.reviewer.name %><%= c.user_id %>  | <%= c.created_at %></span>
-  <div class="card">
-    <p class="comment"><%= c.comments %>
-        <%= link_to "Edit", edit_user_comment_path(@user, c) %>
-        <%= link_to "Delete", user_comment_path(@user, c), :method => :delete %>
-    </p>
+
+  <div>
+    <%= c.reviewer.name %><%= c.user_id %>  |
+    <%= c.created_at %>
+    <% if current_user === c.reviewer %> |
+      <%= link_to "Edit", edit_user_comment_path(@user, c) %> |
+      <%= link_to "Delete", user_comment_path(@user, c), :method => :delete %>
+    <% end %>
   </div>
-<% else %>
-  <span><%= c.reviewer.name %>  | <%= c.created_at %></span>
+
   <div class="card">
     <p class="comment"><%= c.comments %></p>
   </div>
-  <% end %>
 <% end %>
