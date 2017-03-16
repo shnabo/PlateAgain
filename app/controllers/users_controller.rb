@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   end
 
  def show
+   @comment = Comment.new
    load_user
     @hash = Gmaps4rails.build_markers(@user) do |user, marker|
       marker.lat user.latitude
