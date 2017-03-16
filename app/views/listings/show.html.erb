@@ -46,16 +46,6 @@
     <%= link_to "Delete this listing", @listing, :method => :delete, :confirm => "Are you sure?", :title => "Delete #{@listing.item_name}"  %>
   <% end %>
 
-  <h3> Nearby Listings </h3>
-
-
-  <% @listings.each do |listing| %>
-  <% if listing.geocoded? %>
-  <%= @listings.nearbys(20)%>
-  <% else %>
-  <%= @listing.user %>
-   <% end %>
-
 
   <%### MAP %>
   <div id="map"></div>
