@@ -45,26 +45,3 @@
     <%= link_to "Edit this listing", edit_listing_path %> |
     <%= link_to "Delete this listing", @listing, :method => :delete, :confirm => "Are you sure?", :title => "Delete #{@listing.item_name}"  %>
   <% end %>
-
-
-  <%### MAP %>
-  <div id="map"></div>
-  <script>
-    function initMap() {
-      var directionsService = new google.maps.DirectionsService;
-      var directionsDisplay = new google.maps.DirectionsRenderer;
-      var map = new google.maps.Map(document.getElementById('map'));
-      directionsDisplay.setMap(map);
-      directionsService.route({
-        origin: '<%= @current_listing %>',
-        destination: '<%= current_user.full_street_address %>',
-        travelMode: 'DRIVING'
-      }, function(response) {
-        directionsDisplay.setDirections(response);
-      });
-    }
-  </script>
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArWXozgLx1A8ywDrWXL-xd6mCJwCiVQeo&callback=initMap">
-  </script>
-</div>
