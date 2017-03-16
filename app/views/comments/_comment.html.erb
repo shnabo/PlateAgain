@@ -1,4 +1,5 @@
 <% @user.comments.each do |c| %>
+<% while current_user.present? do %>
 <% if current_user.name === c.reviewer.name %>
   <span><%= c.reviewer.name %><%= c.user_id %>  | <%= c.created_at %></span>
   <div class="card">
@@ -13,4 +14,14 @@
     <p class="comment"><%= c.comments %></p>
   </div>
   <% end %>
+<% end %>
+<% end %>
+
+<% @user.comments.each do |c| %>
+<% if current_user === nil %>
+<span><%= c.reviewer.name %>  | <%= c.created_at %></span>
+<div class="card">
+  <p class="comment"><%= c.comments %></p>
+</div>
+<% end %>
 <% end %>
