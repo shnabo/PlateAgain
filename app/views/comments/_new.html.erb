@@ -1,8 +1,15 @@
 <div class="card">
-  <%= form_for([@user, @user.comments.build]) do |f| %>
+
+  <%= form_for [@user, @comment] do |f| %>
+
     <% if current_user %>
-      <h3>Add a Review:</h3>
+      <% if @comment.new_record? %>
+      <h3>Add Review:</h3>
+      <% else %>
+      <h3>Edit Review:</h3>
+      <% end %>
       <%= f.text_area :comments %>
+
       <%= f.hidden_field :reviewer_id, value: current_user.id %>
       <%= f.submit 'Submit Review' %>
     <% else %>

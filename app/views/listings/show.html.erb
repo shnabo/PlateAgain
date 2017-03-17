@@ -46,35 +46,13 @@
     <%= link_to "Delete this listing", @listing, :method => :delete, :confirm => "Are you sure?", :title => "Delete #{@listing.item_name}"  %>
   <% end %>
 
+
   <h3> Nearby Listings </h3>
-
-
-  <% @listings.each do |listing| %>
-  <% if listing.geocoded? %>
-  <%= @listings.nearbys(20)%>
-  <% else %>
-  <%= @listing.user %>
-   <% end %>
-
-
-  <%### MAP %>
-  <div id="map"></div>
-  <script>
-    function initMap() {
-      var directionsService = new google.maps.DirectionsService;
-      var directionsDisplay = new google.maps.DirectionsRenderer;
-      var map = new google.maps.Map(document.getElementById('map'));
-      directionsDisplay.setMap(map);
-      directionsService.route({
-        origin: '<%= @current_listing %>',
-        destination: '<%= current_user.full_street_address %>',
-        travelMode: 'DRIVING'
-      }, function(response) {
-        directionsDisplay.setDirections(response);
-      });
-    }
-  </script>
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArWXozgLx1A8ywDrWXL-xd6mCJwCiVQeo&callback=initMap">
-  </script>
-</div>
+    <ul>
+    <% for user in current_user.nearbys(30) %>
+     <% user.listings.each do |listing| %>
+       <li><%= listing.item_name %></li>
+       <%= link_to listing.user.useraddress, listing %>
+      <% end %>
+    <% end %>
+  </ul>

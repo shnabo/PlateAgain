@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'users#dashboard', as: 'dashboard'
 
   resources :listings
-  
+
   resources :users do
     resources :comments
   end

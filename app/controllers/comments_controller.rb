@@ -4,6 +4,19 @@ class CommentsController < ApplicationController
     find_user
   end
 
+  def edit
+    find_user
+    @comment = Comment.find(params[:id])
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    if @comment.update(comment_params)
+    end
+    redirect_to user_path( params[ :user_id ] )
+  end
+
+
   def create
     find_user
     @comment = @user.comments.create(comment_params)
