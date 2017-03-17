@@ -7,11 +7,11 @@
 
       <% @listings.each do | listing | %>
 
-        <% if listing.claimed == true %>
-          <li class="card-claimed card listing animated flipInX">
-        <% else %>
-          <li class="card listing animated flipInX">
-        <% end %>
+          <% if listing.claimed == true %>
+                   <li class="card-claimed card listing animated flipInX">
+                 <% else %>
+                   <li class="card listing animated flipInX">
+                 <% end %>
 
           <%= link_to listing.item_name, listing_path(listing) %><br />
           Available until: <%= listing.available_until_readable %><br />
@@ -30,6 +30,7 @@
               <%= f.hidden_field :claimed, :value => true %>
               <%= f.submit "claim" %>
             <% end %>
+
           <% end %>
         </li>
       <% end %>

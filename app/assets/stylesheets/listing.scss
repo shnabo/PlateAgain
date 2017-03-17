@@ -5,9 +5,15 @@
 #listing_available_until_2i,
 #listing_available_until_3i,
 #listing_available_until_4i,
-#listing_available_until_5i  {
+#listing_available_until_5i {
   width: auto;
+}
 
-.card-claimed {
-  background-color: pink;
+// [type="submit"] {
+//     background-color: green;
+//     border: 1px solid black;
+//     margin: 10px;
+
+li.pink {
+    background-color: pink;
 }

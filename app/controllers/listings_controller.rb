@@ -1,8 +1,11 @@
 class ListingsController < ApplicationController
 
   def index
-    @listings = Listing.where('available = ?', true )
-                       .where('available_until >= ?', Time.now)
+    @listings = Listing.where(
+    'available = ?',
+    true ).where(
+    'available_until >= ?',
+    Time.now )
   end
 
   def show
