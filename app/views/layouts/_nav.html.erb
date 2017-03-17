@@ -1,0 +1,32 @@
+  <nav class="medium-4 columns">
+    <%= link_to image_tag('plate-again-logo.png', class: 'nav-logo', alt: "PlateAgain logo"), root_url %>
+
+    <ul class="small-6 medium-12 columns menu vertical">
+      <li><%= link_to 'Providers', providers_path %></li>
+      <li><%= link_to 'Acceptors', acceptors_path %></li>
+      <% if current_user %>
+        <li><%= link_to 'Food Listings', listings_path %></li>
+      <% end %>
+    </ul>
+
+    <ul class="small-6 medium-12 columns menu vertical">
+    <% if current_user %>
+      <li><%= link_to 'My Dashboard', dashboard_path %></li>
+      <li><%= link_to 'My Listings', my_listings_path(current_user) %></li>
+        <% if current_user.is_provider? %>
+          <li><%= link_to 'Create Listing', new_listing_path %></li>
+        <% end %>
+      <li><%= link_to 'Conversations', conversations_path %></li>
+      <li><%= link_to 'Log out', logout_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to('Log in', login_path, {"data-open" => "login-reveal"})  %></li>
+      <li class="menu-text">or</li>
+      <li><%= link_to 'Sign up', new_user_path %></li>
+    <% end %>
+    </ul>
+
+    <div id="login-reveal" class="reveal">
+        <%= render "sessions/form" %>
+    </div>
+
+  </nav>

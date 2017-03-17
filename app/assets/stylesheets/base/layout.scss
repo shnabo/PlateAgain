@@ -2,9 +2,6 @@ html,
 body {
   min-height: 100%;
 }
-body {
-  background: linear-gradient( $color1, $color2);
-}
 
 .yield {
   margin: 1rem 0;
@@ -12,7 +9,6 @@ body {
 }
 
 .card {
-  background-color: scale-color($color2, $lightness: 80%);
   padding: 0.5rem;
 }
 
