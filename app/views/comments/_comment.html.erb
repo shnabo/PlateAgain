@@ -13,13 +13,3 @@
     <p class="comment"><%= c.comments %></p>
   </div>
 <% end %>
-<% end %>
-
-<% @user.comments.each do |c| %>
-<% if current_user === nil %>
-<span><%= c.reviewer.name %>  | <%= c.created_at %></span>
-<div class="card">
-  <p class="comment"><%= c.comments %></p>
-</div>
-<% end %>
-<% end %>
