@@ -8,4 +8,13 @@
 </div>
 
 <h2>My listings</h2>
-  <%= render 'listings/listings' %>
+
+  <% @listings.each do | mylisting | %>
+
+    <% if (@user == current_user) && (current_user.is_provider? == false) && (@user.listing.claimed? == true) %>
+
+        <li class="card listing animated flipInX">
+    <% else %>
+        <li redirect_back>
+    <% end %>
+  <% end %>
