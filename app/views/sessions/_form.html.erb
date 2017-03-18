@@ -1,18 +1,18 @@
-<div class="card">
+<div class="login-form">
   <%= form_tag sessions_path, :method => :post do %>
-    <div class="field">
-      <%= label_tag :email %>
-      <%= text_field_tag :email %>
+    <div>
+      <%= label_tag :email, nil, class:"show-for-sr" %>
+      <%= fa_icon "at" %>
+      <%= text_field_tag :email, nil, placeholder: "Email" %>
     </div>
 
-    <div class="field">
-      <%= label_tag :password %>
-      <%= password_field_tag :password %>
+    <div>
+      <%= label_tag :password, nil, class:"show-for-sr" %>
+      <%= fa_icon "lock" %>
+      <%= password_field_tag :password, nil, placeholder: "Password" %>
     </div>
 
-    <div class="field">
-      <%= submit_tag "Log In" %>
-    </div>
+    <%= submit_tag "Log In", class: 'button' %> New? <%= link_to 'Sign up!', new_user_path %>
 
   <% end %>
 </div>

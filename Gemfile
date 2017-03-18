@@ -48,6 +48,7 @@ gem 'fog-aws'
 gem 'underscore-rails'
 # gem 'underscore-rails'
 gem 'foundation-rails'
+gem 'font-awesome-rails'
 
 
 # gem 'underscore-rails'
