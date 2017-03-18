@@ -83,7 +83,12 @@ class UsersController < ApplicationController
   end
 
   def load_user_listings
-    @listings = @user.listings
+    if current_user && !current_user.is_provider?
+      @listings = Listing.where("claimer_id = ?", current_user.id)
+    else
+      @listings = @user.listings
+    end
+
   end
 
   def user_params

@@ -1,4 +1,4 @@
-<h1>Welcome, <%= @user.name %>!</h1>
+<h1>Dashboard</h1>
 
 <div class="card">
   <p>Registration number: <%= @user.registration %></p>
@@ -7,14 +7,10 @@
   <%= link_to "Edit my profile", edit_user_path(@user) %>
 </div>
 
-<h2>My listings</h2>
+<% if current_user.is_provider? %>
+  <h2>My listings</h2>
+<% else %>
+  <h2>My claimed listings</h2>
+<% end %>
 
-  <% @listings.each do | mylisting | %>
-
-    <% if (@user == current_user) && (current_user.is_provider? == false) && (@user.listing.claimed? == true) %>
-
-        <li class="card listing animated flipInX">
-    <% else %>
-        <li redirect_back>
-    <% end %>
-  <% end %>
+  <%= render 'listings/listings' %>
