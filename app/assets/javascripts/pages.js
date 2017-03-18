@@ -1,17 +1,16 @@
-// var $logo = $('.nav-logo');
-// var $window = $(window);
+// $(window).trigger('scroll');
 //
-// $window.on('scroll resize', check_if_at_top);
-//
-// $window.trigger('scroll');
+// $(window).on('scroll resize', check_if_at_top);
 //
 // function check_if_at_top() {
-//   var window_top_position = $window.scrollTop();
-//   var logo_top_position = $logo.scrollTop();
+//   var scrollTop = $(window).scrollTop();
+//   var topDistance = $('.nav-logo').offset().top;
+//   var mediumScreen = $(window).width() >= 640;
 //
-//   if (logo_top_position >= window_top_position) {
-//     $logo.css('height','0px');
-//   } else {
-//     $logo.css('height', 'auto');
-//   }
+//     if ( (topDistance-100) <= scrollTop && mediumScreen) {
+//       $('.nav-logo').addClass('animated fadeIn unshrink').removeClass('fadeOut shrink');
+//     } else {
+//       $('.nav-logo').removeClass('fadeIn unshrink').addClass('fadeOut shrink');
+//     }
+//
 // }

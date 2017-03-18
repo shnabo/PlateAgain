@@ -20,3 +20,19 @@ select {
     content: " *"
   }
 }
+
+.login-form {
+  padding-top: 1rem;
+  div {
+    position: relative;
+  }
+  i {
+    position: absolute;
+    padding: 0.5rem;
+    font-size: 1.4rem;
+  }
+  input[type="text"],
+  input[type="password"] {
+    padding-left: 2rem;
+  }
+}
