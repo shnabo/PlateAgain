@@ -1,8 +1,8 @@
 <% @user.comments.each do |c| %>
 
   <div>
-    <%= c.reviewer.name %><%= c.user_id %>  |
-    <%= c.created_at %>
+    <%= c.reviewer.name %>  |
+    <%= c.created_at.strftime("%B %d %Y %I:%M") %>
     <% if current_user === c.reviewer %> |
       <%= link_to "Edit", edit_user_comment_path(@user, c) %> |
       <%= link_to "Delete", user_comment_path(@user, c), :method => :delete %>
