@@ -1,5 +1,9 @@
 <% if current_user %>
 
+<% if current_user.is_provider? %>
+<%= link_to 'Create Listing', new_listing_path %>
+<% end %>
+
   <ul class="unlist">
     <% if @listings.empty? %>
       <p>
