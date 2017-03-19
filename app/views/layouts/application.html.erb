@@ -10,6 +10,9 @@
 
   <body>
     <div class="row">
+      <% flash.each do |key, message| %>
+      <div class="flash flash-<%= key %> animated fadeOutUp"><%= message %></div>
+      <% end %>
 
       <% if request.url == root_url %>
         <%= render partial: 'layouts/header_home' %>
@@ -18,9 +21,6 @@
       <%= render partial: 'layouts/nav' %>
 
       <main class="medium-8 columns">
-        <% flash.each do |key, message| %>
-          <div class="flash-<%= key %>"><%= message %></div>
-        <% end %>
 
         <article class="yield">
           <%= yield %>
