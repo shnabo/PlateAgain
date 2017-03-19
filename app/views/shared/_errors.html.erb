@@ -1,5 +1,5 @@
   <% if object.errors.any? %>
-    <div id="error_description">
+    <div id="error_description" class="callout">
       <h2>Please review <%= pluralize(object.errors.count, "error") %></h2>
       <ul>
         <% object.errors.full_messages.each do |msg| %>

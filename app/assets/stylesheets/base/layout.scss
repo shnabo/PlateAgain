@@ -17,6 +17,28 @@ body {
   padding: 0.5rem;
 }
 
+.flash {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: 1rem;
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  animation-delay: 2s;
+}
+.flash-notice {
+  background-color: scale-color($success-color, $lightness: 60%);
+}
+.flash-alert {
+  background-color: scale-color($alert-color, $lightness: 60%);
+}
+
+#error_description {
+  background-color: scale-color($warning-color, $lightness: 60%);
+}
+
 footer {
   padding: 1rem;
 }
