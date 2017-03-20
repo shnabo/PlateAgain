@@ -42,7 +42,7 @@
 //  37. Top Bar
 
 @import 'util/util';
-@import url('https://fonts.googleapis.com/css?family=Signika');
+@import url('https://fonts.googleapis.com/css?family=Kreon');
 
 
 // 1. Global
@@ -91,7 +91,7 @@ $global-radius: 0;
 $global-text-direction: ltr;
 $global-flexbox: false;
 $print-transparent-backgrounds: true;
-$fun-font-family: 'Signika';
+$fun-font-family: 'Kreon';
 
 @include add-foundation-colors;
 
@@ -262,7 +262,7 @@ $breadcrumbs-item-slash: true;
 $button-padding: 0.85em 1em;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
-$button-background: $primary-color;
+$button-background: $color1;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
 $button-color: $white;
 $button-color-alt: $black;
@@ -607,11 +607,11 @@ $thumbnail-radius: $global-radius;
 // 35. Title Bar
 // -------------
 
-$titlebar-background: $black;
-$titlebar-color: $white;
+$titlebar-background: transparent;
+$titlebar-color: $black;
 $titlebar-padding: 0.5rem;
 $titlebar-text-font-weight: bold;
-$titlebar-icon-color: $white;
+$titlebar-icon-color: $black;
 $titlebar-icon-color-hover: $medium-gray;
 $titlebar-icon-spacing: 0.25rem;
 

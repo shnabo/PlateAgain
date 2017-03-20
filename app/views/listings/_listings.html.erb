@@ -1,42 +1,43 @@
 <% if current_user %>
 
+  <% if current_user.is_provider? %>
+    <%= link_to 'Create Listing', new_listing_path %>
+  <% end %>
+
+  <% if @listings.empty? %>
+    <p>
+      There are currently no listings.
+    </p>
+  <% else %>
+
   <ul class="unlist">
-    <% if @listings.empty? %>
-      <p>There are currently no listings</p>
-    <% else %>
+    <% @listings.each do | listing | %>
+      <li class="card-claimed card listing animated flipInX <%= listing.claimed? ? "card-claimed" : "" %>">
 
-      <% @listings.each do | listing | %>
+        <%= link_to listing.item_name, listing_path(listing) %><br />
+        Available until: <%= listing.available_until_readable %><br />
 
-          <% if listing.claimed == true %>
-                   <li class="card-claimed card listing animated flipInX">
-                 <% else %>
-                   <li class="card listing animated flipInX">
-                 <% end %>
+        <% if current_user == listing.user %>
+          <%= link_to "Edit this listing", edit_listing_path(listing) %> |
+          <%= link_to "Delete this listing", listing, :method => :delete, :confirm => "Are you sure?", :title => "Delete #{listing.item_name}"  %>
+        <% elsif current_user != listing.user %>
+          <%= link_to "Send Message", new_conversation_url(listing.user.id) %>
 
-          <%= link_to listing.item_name, listing_path(listing) %><br />
-          Available until: <%= listing.available_until_readable %><br />
+        <% end %>
 
-          <% if current_user == @user %>
-            <%= link_to "Edit this listing", edit_listing_path(listing) %> |
-            <%= link_to "Delete this listing", listing, :method => :delete, :confirm => "Are you sure?", :title => "Delete #{listing.item_name}"  %>
-          <% elsif current_user != @user %>
-            <%= link_to "Send Message", new_conversation_url(listing.user.id) %>
-
+        <% if !current_user.is_provider %>
+          <%= form_for listing do | f | %>
+            <%= f.hidden_field :claimer_id, :value => current_user.id %>
+            <%= f.hidden_field :claimed, :value => true %>
+            <%= f.submit "claim" %>
           <% end %>
+        <% end %>
 
-          <% if !current_user.is_provider %>
-            <%= form_for listing do | f | %>
-              <%= f.hidden_field :claimer_id, :value => current_user.id %>
-              <%= f.hidden_field :claimed, :value => true %>
-              <%= f.submit "claim" %>
-            <% end %>
-
-          <% end %>
-        </li>
-      <% end %>
-
+      </li>
     <% end %>
+
   </ul>
+  <% end %>
 
 <% else %>
   <p>You must be logged in to view listings. <%= link_to "Log in", login_path %> or <%= link_to "Sign up", new_user_path %></p>
