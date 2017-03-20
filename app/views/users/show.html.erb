@@ -55,7 +55,13 @@
 
   <%### REVIEWS %>
   <section class="tabs-panel" id="reviews">
-    <%= render 'comments/comment' %>
+    <% if @user.comments.present? %>
+      <%= render 'comments/comment' %>
+    <% else %>
+      <p>
+        There are no reviews yet.
+      </p>
+    <% end %>
     <%= render 'comments/new' %>
   </section>
 

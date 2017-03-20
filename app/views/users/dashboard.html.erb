@@ -13,8 +13,4 @@
   <h2>My claimed listings</h2>
 <% end %>
 
-
-  <% @listings.each do | mylisting  | %>
-    <%= mylisting.item_name %>
-    <%= mylisting.quantity %>
-  <% end %>
+<%= render 'listings/listings' %>

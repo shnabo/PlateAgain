@@ -1,4 +1,8 @@
-<h1> Listings for <%= @user.name %> </h1>
+<% if @user.is_provider? %>
+  <h1> Listings for <%= @user.name %> </h1>
+<% else %>
+  <h1>Claimed by <%= @user.name %></h1>
+<% end %>
 
 
 <%= render 'listings/listings' %>
