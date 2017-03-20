@@ -5,10 +5,9 @@
 
 $(function () {
 
-  $('[type="submit"]').on('click', function (event) {
+  $('.listing input[type="submit"]').on('click', function (event) {
           // event.preventDefault()
           // $(this).toggleClass('green');
-          $(this).parent().parent().toggleClass('pink');
-
+          $(this).parent().parent().toggleClass('card-claimed');
   });
 });
