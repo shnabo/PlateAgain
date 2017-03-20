@@ -8,15 +8,18 @@ $(function () {
   $('.listing input[type="submit"]').on('click', function() {
           // event.preventDefault()
           // $(this).toggleClass('green');
-          $('.listing').toggleClass('card-claimed');
+    $('.listing').toggleClass('card-claimed');
 
 
-          //$().click(function(){
-  //$(this).text(function(i, v){
-     //return v === 'claim' ? 'uncliam' : 'claim'
-  //});
   });
-});
 
-  //});
-//});
+
+
+  // $('.claimed').on('click', function(){
+  //   $(this).text('.claim')
+  //   });
+  // });
+
+
+
+});
