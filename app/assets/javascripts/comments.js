@@ -27,6 +27,7 @@ $(document).ready(function() {
       method: $(this).attr('method'),
       data: $(this).serialize()
     }).done(function() {
+      $('.no-reviews').remove();
       commentInput.val('');
     });
 
