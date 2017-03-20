@@ -28,13 +28,13 @@
         <% if !current_user.is_provider %>
           <%= form_for listing do | f | %>
               <% if listing.claimed %>
-              <%= f.hidden_field :claimer_id, :value => nil %>
-              <%= f.hidden_field :claimed, :value => false %>
-              <%= f.submit "unclaim" %>
-              <% else %>
-              <%= f.hidden_field :claimer_id, :value => current_user.id %>
-              <%= f.hidden_field :claimed, :value => true %>
-              <%= f.submit "claim" %>
+                  <%= f.hidden_field :claimer_id, :value => nil %>
+                  <%= f.hidden_field :claimed, :value => false %>
+                  <%= f.submit "unclaim" %>
+                  <% else %>
+                  <%= f.hidden_field :claimer_id, :value => current_user.id %>
+                  <%= f.hidden_field :claimed, :value => true %>
+                  <%= f.submit "claim" %>
               <% end %>
           <% end %>
         <% end %>
