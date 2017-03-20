@@ -28,24 +28,22 @@
         <% if !current_user.is_provider %>
           <%= form_for listing do | f | %>
               <% if listing.claimed %>
+
+              <div class="unclaimed">
                   <%= f.hidden_field :claimer_id, :value => nil %>
                   <%= f.hidden_field :claimed, :value => false %>
                   <%= f.submit "unclaim" %>
+                </div>
+
                   <% else %>
+
+                <div class="claimed>"
                   <%= f.hidden_field :claimer_id, :value => current_user.id %>
                   <%= f.hidden_field :claimed, :value => true %>
                   <%= f.submit "claim" %>
-              <% end %>
+                </div>
 
-              <script type="text/javascript">
-    $function change( submit )
-{
-    if ( submit.value === "claim" )
-        submit.value = "unclaim";
-    else
-        submit.value = "claim";
-}
-</script>
+              <% end %>
           <% end %>
         <% end %>
 

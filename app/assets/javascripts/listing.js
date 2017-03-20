@@ -5,13 +5,18 @@
 
 $(function () {
 
-  $('.listing input[type="submit"]').on('click', function (event) {
+  $('.listing input[type="submit"]').on('click', function() {
           // event.preventDefault()
           // $(this).toggleClass('green');
-          $(this).parent().parent().toggleClass('card-claimed');
-         $(this).toggleClass('card-unclaimed');
+          $('.listing').toggleClass('card-claimed');
 
 
-
+          //$().click(function(){
+  //$(this).text(function(i, v){
+     //return v === 'claim' ? 'uncliam' : 'claim'
+  //});
   });
 });
+
+  //});
+//});
