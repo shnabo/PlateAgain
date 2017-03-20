@@ -1,15 +1,13 @@
 <% @user.comments.each do |c| %>
 
-  <div>
+  <div class="comment-item">
     <%= c.reviewer.name %>  |
     <%= c.created_at.strftime("%B %d %Y %I:%M") %>
     <% if current_user === c.reviewer %> |
       <%= link_to "Edit", edit_user_comment_path(@user, c) %> |
       <%= link_to "Delete", user_comment_path(@user, c), :method => :delete %>
     <% end %>
-  </div>
 
-  <div class="card">
-    <p class="comment"><%= c.comments %></p>
+    <p class="card comment"><%= c.comments %></p>
   </div>
 <% end %>

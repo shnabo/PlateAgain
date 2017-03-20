@@ -1,0 +1,11 @@
+  var commentList = $('.comments-list');
+  var newComment = $('<div class="comment-item">');
+  var commentCard = $('<p class="card">');
+
+  commentCard.append('<%= @comment.comments %>');
+  newComment.append('<%= @comment.reviewer.name %> | ')
+            .append('<%= @comment.created_at.strftime("%B %d %Y %I:%M") %> | ')
+            .append('<%= link_to "Edit", edit_user_comment_path(@user, @comment) %> | ')
+            .append('<%= link_to "Delete", user_comment_path(@user, @comment), :method => :delete %>')
+  newComment.append(commentCard);
+  commentList.append(newComment);
