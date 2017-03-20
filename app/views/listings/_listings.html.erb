@@ -12,7 +12,7 @@
 
   <ul class="unlist">
     <% @listings.each do | listing | %>
-      <li class="card-claimed card listing animated flipInX <%= listing.claimed? ? "card-claimed" : "" %>">
+      <li class="card listing animated flipInX <%= listing.claimed? ? "card-claimed" : "" %>">
 
         <%= link_to listing.item_name, listing_path(listing) %><br />
         Available until: <%= listing.available_until_readable %><br />
@@ -27,9 +27,15 @@
 
         <% if !current_user.is_provider %>
           <%= form_for listing do | f | %>
-            <%= f.hidden_field :claimer_id, :value => current_user.id %>
-            <%= f.hidden_field :claimed, :value => true %>
-            <%= f.submit "claim" %>
+              <% if listing.claimed %>
+                  <%= f.hidden_field :claimer_id, :value => nil %>
+                  <%= f.hidden_field :claimed, :value => false %>
+                  <%= f.submit "unclaim" %>
+                  <% else %>
+                  <%= f.hidden_field :claimer_id, :value => current_user.id %>
+                  <%= f.hidden_field :claimed, :value => true %>
+                  <%= f.submit "claim" %>
+              <% end %>
           <% end %>
         <% end %>
 

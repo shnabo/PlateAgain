@@ -84,7 +84,7 @@ class UsersController < ApplicationController
 
   def load_user_listings
     if current_user && !current_user.is_provider?
-      @listings = Listing.where("claimer_id = ?", current_user.id)
+      @listings = Listing.where("claimer_id = ?", current_user.id).where("claimed = ?", true)
     else
       @listings = @user.listings
     end
