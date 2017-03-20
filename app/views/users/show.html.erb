@@ -55,15 +55,15 @@
 
   <%### REVIEWS %>
   <section class="tabs-panel" id="reviews">
-    <% if @user.comments.present? %>
-      <div class="comments-list">
+    <div class="comments-list">
+      <% if @user.comments.present? %>
         <%= render 'comments/comment' %>
-      </div>
-    <% else %>
-      <p>
-        There are no reviews yet.
-      </p>
-    <% end %>
+      <% else %>
+        <p class="no-reviews">
+          There are no reviews yet.
+        </p>
+      <% end %>
+    </div>
     <%= render 'comments/new' %>
   </section>
 
