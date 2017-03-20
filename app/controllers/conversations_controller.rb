@@ -10,6 +10,7 @@ class ConversationsController < ApplicationController
 
   def show
     @conversation = current_user.mailbox.conversations.find(params[:id])
+    @receipts = @conversation.receipts_for(current_user).order("created_at ASC")
   end
 
   def new
@@ -27,7 +28,7 @@ class ConversationsController < ApplicationController
   def create
     @recipient = User.find(params[:user_id])
     receipt =  current_user.send_message(@recipient, params[:body], params[:subject])
-    flash[:notice] = "Message to #{@recipient} sent successfully"
+    flash[:notice] = "Message to #{@recipient.name} sent successfully"
     redirect_to conversation_path(receipt.conversation)
   end
 
