@@ -71,7 +71,7 @@ User.create(is_provider: false,
             phone: '416-366-2733',
             description: 'The Maxwell Meighen Centre is a multi-care facility offering various programs and services.',
             homepage: 'www.MMeighen.ca',
-            photo: 'https://christiestreetrc.com/wp-content/uploads/2016/11/Christie-Refugee-NO-GREEN-BOX-PS325.png',
+            photo: '',
             registration: '107951618 RR0001')
 
 User.create(is_provider: false,
