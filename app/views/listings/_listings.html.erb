@@ -36,6 +36,16 @@
                   <%= f.hidden_field :claimed, :value => true %>
                   <%= f.submit "claim" %>
               <% end %>
+
+              <script type="text/javascript">
+    $function change( submit )
+{
+    if ( submit.value === "claim" )
+        submit.value = "unclaim";
+    else
+        submit.value = "claim";
+}
+</script>
           <% end %>
         <% end %>
 

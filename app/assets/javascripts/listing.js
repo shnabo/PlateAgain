@@ -9,5 +9,9 @@ $(function () {
           // event.preventDefault()
           // $(this).toggleClass('green');
           $(this).parent().parent().toggleClass('card-claimed');
+         $(this).toggleClass('card-unclaimed');
+
+
+
   });
 });
