@@ -15,7 +15,6 @@
 //= require jquery-ui
 //= require foundation
 //= require_tree .
-//= require underscore
 //= require gmaps/google
 
 

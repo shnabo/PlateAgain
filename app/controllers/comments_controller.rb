@@ -20,10 +20,14 @@ class CommentsController < ApplicationController
   def create
     find_user
     @comment = @user.comments.create(comment_params)
-    if @comment.save
-      redirect_to user_path(@user)
-    else
-      redirect_back(fallback_location: root_path)
+
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to user_path(@user), notice: "Review posted successfully!" }
+        format.js {}
+      else
+        redirect_back(fallback_location: root_path)
+      end
     end
   end
 

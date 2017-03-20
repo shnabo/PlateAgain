@@ -1,6 +1,6 @@
 <div class="card">
 
-  <%= form_for [@user, @comment] do |f| %>
+  <%= form_for [@user, @comment], remote: true do |f| %>
 
     <% if current_user %>
       <% if @comment.new_record? %>
