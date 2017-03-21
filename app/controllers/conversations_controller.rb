@@ -29,7 +29,11 @@ class ConversationsController < ApplicationController
     @recipient = User.find(params[:user_id])
     receipt =  current_user.send_message(@recipient, params[:body], params[:subject])
     flash[:notice] = "Message to #{@recipient.name} sent successfully"
-    redirect_to conversation_path(receipt.conversation)
+    # redirect_to conversation_path(receipt.conversation)
+
+    # respond_to do |format|
+    #     format.js { render 'conversations/create'}
+    # end
   end
 
 end
