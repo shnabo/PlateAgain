@@ -36,6 +36,10 @@
     <p><strong>Website:</strong> <%= link_to @user.homepage, @user.homepage %></p>
     <p><%= @user.description %></p>
 
+    <div class="callout warning">
+      This account was created for <strong>demonstration purposes only</strong>. The makers of PlateAgain do not speak for this business/organization.
+    </div>
+
     <div class="map">
       <% if current_user.present? %>
         <%= render 'maploggedin' %>
