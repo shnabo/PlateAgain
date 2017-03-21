@@ -6,7 +6,7 @@ class ListingsController < ApplicationController
 
   def show
     find_listing
-    load_user
+    @user = @listing.user
   end
 
   def new
@@ -47,9 +47,11 @@ class ListingsController < ApplicationController
 
   def update
     find_listing
-    @listing.update_attributes(listings_params)
-      current_user.listings << @listing
-      redirect_to listings_path
+    if @listing.update_attributes(listings_params)
+      # redirect_to @listing
+    else
+      render :edit
+    end
 
   end
 
@@ -61,10 +63,6 @@ class ListingsController < ApplicationController
 
 
   private
-
-  def load_user
-    @user = User.find(params[:user_id])
-  end
 
   def find_listing
     @listing = Listing.find(params[:id])
