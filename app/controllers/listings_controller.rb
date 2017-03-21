@@ -48,7 +48,7 @@ class ListingsController < ApplicationController
   def update
     find_listing
     if @listing.update_attributes(listings_params)
-      # redirect_to @listing
+      redirect_to @listing
     else
       render :edit
     end
