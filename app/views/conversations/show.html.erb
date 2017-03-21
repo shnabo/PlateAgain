@@ -1,22 +1,25 @@
-<h1>Conversation</h1>
+<h1>Conversation: <%= @conversation.subject %></h1>
 
-<div class="card">
-  <h2><%= @conversation.subject %></h2>
-
-  <% @conversation.receipts_for(current_user).each do | receipt | %>
-    <div>
-      <span="username">  <%= receipt.message.sender.name %> commented:</span>
-      <p class="comments"> <%= receipt.message.body %> </p>
+<div class="card conversation">
+  <% @receipts.each do | receipt | %>
+    <div class="receipt">
+      <span class="username">
+        <% if receipt.message.sender == current_user %>
+          me 
+        <% else %>
+          <%= receipt.message.sender.name %>
+        <% end %>
+        (<%= receipt.message.created_at.strftime('%b %-d, %l:%M%p') %>):
+      </span>
+      <p class="message-text"><%= receipt.message.body %></p>
     </div>
   <% end %>
 </div>
 
 <div class="card">
-  <%= form_tag conversation_messages_path(@conversation), method: 'post' do %>
-    <label>Reply:</label>
+  <%= form_tag conversation_messages_path(@conversation), method: 'post', id: 'new_message', remote: true do %>
+    <%= label_tag :body, "Reply:" %>
     <%= text_area_tag :body %>
-    <%= submit_tag "Save message" %>
+    <%= submit_tag "Send" %>
   <% end %>
-  </br>
-  <p> <%= link_to "Back", conversations_path %> </p>
 </div>

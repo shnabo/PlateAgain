@@ -1,0 +1,11 @@
+var message = $('<div class="receipt">');
+var span = $('<span class="username">');
+var text = $('<p class="message-text">');
+
+text.append('<%= @receipt.message.body %>')
+span.append('<%= @receipt.message.sender.name %> ')
+    .append('(<%= @receipt.message.created_at.strftime("%b %-d, %l:%M%p") %>):');
+
+message.append(span);
+message.append(text);
+$('.conversation').append(message);
