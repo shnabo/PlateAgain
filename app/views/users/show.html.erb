@@ -27,12 +27,13 @@
       <p><%= fa_icon "comment-o" %><%= link_to "Send Message", new_conversation_url(user_id: @user.id) %></p>
     <% end %>
 
-    <p>Address: <%= @show_address %></p>
-    <p>Phone: <%= @user.phone %></p>
-    <p>Email: <%= @user.email %></p>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <div class="addthis_inline_share_toolbox"></div>
 
-
-    <p>Website: <%= link_to @user.homepage, @user.homepage %></p>
+    <p><strong>Address:</strong> <%= @show_address %></p>
+    <p><strong>Phone:</strong> <%= @user.phone %></p>
+    <p><strong>Email:</strong> <%= @user.email %></p>
+    <p><strong>Website:</strong> <%= link_to @user.homepage, @user.homepage %></p>
     <p><%= @user.description %></p>
 
     <div class="map">
