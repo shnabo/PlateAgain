@@ -3,12 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .user-header {
-  position: relative;
+  img {
+    width: 100%;
+  }
 }
-.user-header-text {
-  position: absolute;
-  bottom: 0;
-  background: rgba(96, 114, 137, 0.8);
+.user-tabs {
   width: 100%;
   padding: 0 1rem;
+  background: rgba(96,114,137,0.8);
 }

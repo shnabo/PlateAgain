@@ -1,12 +1,10 @@
 <header class="user-header">
   <% if @user.photo.present? %>
     <%= image_tag @user.photo %>
-  <% else %>
-    <%= image_tag "http://lorempixel.com/g/800/300/abstract" %>
   <% end %>
 
-  <div class="user-header-text">
-    <h1><%= @user.name %></h1>
+  <h1><%= @user.name %></h1>
+  <div class="user-tabs">
     <ul class="tabs" data-tabs data-deep-link="true" data-update-history="true" id="user-page-tabs">
       <li class="tabs-title is-active"><a href="#details" aria-selected="true">Details</a></li>
       <% if @user.is_provider %>
@@ -22,11 +20,11 @@
   <section class="card tabs-panel is-active" id="details">
 
     <% if current_user === @user %>
-      <%= link_to 'Edit Profile', edit_user_path %>
+      <P><%= fa_icon "pencil" %><%= link_to 'Edit Profile', edit_user_path %></p>
     <% end %>
 
     <% if current_user != @user %>
-      <p><%= link_to "Send Message", new_conversation_url(user_id: @user.id) %></p>
+      <p><%= fa_icon "comment-o" %><%= link_to "Send Message", new_conversation_url(user_id: @user.id) %></p>
     <% end %>
 
     <p>Address: <%= @show_address %></p>
