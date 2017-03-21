@@ -1,12 +1,11 @@
-<div class="card">
-  <strong><%= @listing.user.name %> is offering:</strong>
+<div class="card <%= @listing.claimed? ? "card-claimed" : "" %>">
   <h1><%= @listing.item_name %></h1>
 
   <%if @listing.picture.present? %>
     <%= image_tag @listing.picture %>
   <% end %>
 
-  <p>Quantity: <%= @listing.quantity %></p>
+  <p><strong>Quantity:</strong> <%= @listing.quantity %></p>
 
   <p>This is a <strong>
     <% if @listing.perishable %>
@@ -24,6 +23,11 @@
     <p>Notes: <%= @listing.notes %></p>
   <% end %>
 
+  <p>
+    Available from <strong><%= link_to @listing.user.name, @listing.user %></strong> until:
+    <h3><%= @listing.available_until_readable %></h3>
+  </p>
+
   <strong>For more information:</strong>
   <p>
     <% if @listing.contact_name.present? %>
@@ -38,21 +42,48 @@
     <%= link_to "Send a message to #{@listing.user.name}", new_conversation_path(user_id: @listing.user.id, subject: @listing.item_name) %>
   </p>
 
-  <strong>Listed until: </strong>
-  <h2><%= @listing.available_until_readable %></h2>
-
   <% if current_user === @listing.user  %>
     <%= link_to "Edit this listing", edit_listing_path %> |
     <%= link_to "Delete this listing", @listing, :method => :delete, :confirm => "Are you sure?", :title => "Delete #{@listing.item_name}"  %>
   <% end %>
 
+        <% if !@listing.claimed && current_user != @listing.user %>
+          <%= form_for @listing do | f | %>
+            <%= f.hidden_field :claimer_id, :value => current_user.id %>
+            <%= f.hidden_field :claimed, :value => true %>
+            <%= f.submit "claim"%>
+          <% end %>
+        <% end %>
 
-  <h3> Nearby Listings </h3>
-    <ul>
-    <% for user in current_user.nearbys(30) %>
-     <% user.listings.each do |listing| %>
-       <li><%= listing.item_name %></li>
-       <%= link_to listing.user.useraddress, listing %>
-      <% end %>
+        <% if @listing.claimed %>
+          <% if current_user == @listing.claimer %>
+            <%= form_for @listing do | f | %>
+              <%= f.hidden_field :claimer_id, :value => nil %>
+              <%= f.hidden_field :claimed, :value => false %>
+              <%= f.submit "unclaim" %>
+            <% end %>
+          <% elsif current_user == @listing.user %>
+            <p>
+              Claimed by <%= link_to @listing.claimer.name, user_path(@listing.claimer) %>
+            </p>
+          <% else %>
+            <p>
+              This listing has been claimed and may no longer be available.
+            </p>
+          <% end %>
+        <% end %>
+
+</div>
+
+
+<h3>Nearby Listings</h3>
+  <ul class="unlist">
+  <% for user in current_user.nearbys(5) %>
+    <% user.listings.each do |listing| %>
+      <li class="card <%= listing.claimed? ? "card-claimed" : "" %>">
+        <%= link_to listing.item_name, listing %><br />
+        <%= listing.user.useraddress %>
+      </li>
     <% end %>
-  </ul>
+  <% end %>
+</ul>
