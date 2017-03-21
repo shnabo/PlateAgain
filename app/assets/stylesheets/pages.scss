@@ -8,6 +8,13 @@
   h1 {
     position: relative;
     z-index: 2;
+    img {
+      @media (max-width: 640px) {
+        max-width: 250px;
+        margin: 0 auto;
+        display: block;
+      }
+    }
   }
   h2 {
     position: relative;
@@ -15,6 +22,7 @@
     line-height: 1.2;
     color: $black;
     text-align: center;
+    margin-top: 2rem;
     a {
       color: $black;
       border-bottom: 2px solid $color1;
@@ -29,7 +37,7 @@
   top:-10px;
   left: -10px;
   z-index: 0;
-  background: url('https://s3.ca-central-1.amazonaws.com/svillegas-herokuapp-plateagain/447733.jpg');
+  background: url('https://images5.alphacoders.com/454/thumb-1920-454233.jpg');
   background-size: cover;
   filter: blur(2px) opacity(50%);
 }
