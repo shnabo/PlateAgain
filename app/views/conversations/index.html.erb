@@ -1,11 +1,19 @@
-<h1> Your Conversations </h1>
+<h1>My Conversations</h1>
 
-<%= link_to "New Conversation", new_conversation_path %>
+<p>
+  <%= link_to "Start A Conversation", new_conversation_path %>
+</p>
 
-<% @conversations.each do | conversation | %>
+<% @conversations.each do |conversation| %>
 
   <div class="card">
-    <%= link_to conversation.subject, conversation_path(conversation) %>
+    <%= link_to conversation.subject, conversation_path(conversation) %><br />
+    with:
+    <% conversation.recipients.each do |recipient| %>
+      <% if recipient != current_user %>
+        <%= recipient.name %>
+      <% end %>
+    <% end %>
   </div>
 
 <% end %>
