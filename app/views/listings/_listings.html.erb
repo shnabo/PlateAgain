@@ -1,9 +1,5 @@
 <% if current_user %>
 
-  <% if current_user.is_provider? %>
-    <%= link_to 'Create Listing', new_listing_path %>
-  <% end %>
-
   <% if @listings.empty? %>
     <p>
       There are currently no listings.
@@ -18,8 +14,14 @@
         Available until: <%= listing.available_until_readable %><br />
 
         <% if current_user == listing.user %>
-          <%= link_to "Edit this listing", edit_listing_path(listing) %> |
-          <%= link_to "Delete this listing", listing, :method => :delete, :confirm => "Are you sure?", :title => "Delete #{listing.item_name}"  %>
+          <div class="provider-actions">
+            <%= link_to edit_listing_path(listing) do %>
+              <%= fa_icon "pencil" %>
+            <% end %>
+            <%= link_to listing, :method => :delete, :confirm => "Are you sure?", :title => "Delete #{listing.item_name}" do %>
+              <%= fa_icon "trash" %>
+            <% end %>
+          </div>
         <% end %>
 
         <% if !listing.claimed && current_user != listing.user %>

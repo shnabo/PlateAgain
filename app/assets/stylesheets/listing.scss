@@ -9,6 +9,19 @@
   width: auto;
 }
 
+.listing {
+  position: relative;
+}
+.provider-actions {
+  position: absolute;
+  top: 0;
+  right:0;
+  i {
+    font-size: 1.5rem;
+    padding-top:10px;
+  }
+}
+
 li.card-claimed {
     background-color: pink;
 }

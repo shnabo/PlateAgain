@@ -8,6 +8,18 @@ body {
 .title-bar {
 }
 
+.home-login {
+  padding: 0.5rem;
+}
+
+  i {
+    padding-right: 0.5rem;
+    color: $color1;
+    width: 2rem;
+    text-align: center;
+  }
+
+
 .yield {
   margin: 1rem 0;
   overflow: hidden;

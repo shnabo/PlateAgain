@@ -4,8 +4,12 @@
     <%= c.reviewer.name %>  |
     <%= c.created_at.strftime("%B %d %Y %I:%M") %>
     <% if current_user === c.reviewer %> |
-      <%= link_to "Edit", edit_user_comment_path(@user, c) %> |
-      <%= link_to "Delete", user_comment_path(@user, c), :method => :delete %>
+                <%= link_to edit_user_comment_path(@user, c) do %>
+                  <%= fa_icon "pencil" %>
+                <% end %> |
+                <%= link_to user_comment_path(@user, c), :method => :delete do %>
+                  <%= fa_icon "trash" %>
+                <% end %>
     <% end %>
 
     <p class="card comment"><%= c.comments %></p>

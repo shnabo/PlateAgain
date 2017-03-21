@@ -8,8 +8,9 @@
 
     <div class="small-8 medium-12 columns home-login">
       <% if current_user %>
-        <span>Welcome, <%= current_user.name %>!</span>
+        <p>Welcome, <%= current_user.name %>!
         <%= link_to 'Log out', logout_path, method: :delete, class: 'button' %>
+        </p>
       <% else %>
         <%= render 'sessions/form' %>
       <% end %>
@@ -19,16 +20,16 @@
       </span>
       <nav id="main-menu" class="menu vertical">
         <ul class="unlist">
-          <li><%= link_to 'Providers', providers_path %></li>
-          <li><%= link_to 'Acceptors', acceptors_path %></li>
+          <li><%= fa_icon "user" %><%= link_to 'Providers', providers_path %></li>
+          <li><%= fa_icon "user-o" %><%= link_to 'Acceptors', acceptors_path %></li>
 
           <% if current_user %>
-            <li><%= link_to 'Food Listings', listings_path %></li>
-            <li><%= link_to 'My Dashboard', dashboard_path %></li>
-            <li><%= link_to 'Conversations', conversations_path %></li>
-            <li><%= link_to 'My Listings', my_listings_path(current_user) %></li>
+            <li><%= fa_icon "shopping-basket" %><%= link_to 'Food Listings', listings_path %></li>
+            <li><%= fa_icon "tachometer" %><%= link_to 'My Dashboard', dashboard_path %></li>
+            <li><%= fa_icon "comments-o" %><%= link_to 'Conversations', conversations_path %></li>
+            <li><%= fa_icon "list" %><%= link_to 'My Listings', my_listings_path(current_user) %></li>
             <% if current_user.is_provider? %>
-              <li><%= link_to 'Create Listing', new_listing_path %></li>
+              <li><%= fa_icon "pencil" %><%= link_to 'Create Listing', new_listing_path %></li>
             <% end %>
           <% end %>
         </ul>

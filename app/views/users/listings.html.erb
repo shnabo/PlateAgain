@@ -1,5 +1,11 @@
 <% if @user.is_provider? %>
-  <h1> Listings for <%= @user.name %> </h1>
+  <h1>Listings for <%= @user.name %>
+    <% if current_user.is_provider? %>
+      <%= link_to new_listing_path do %>
+        <%= fa_icon "plus-circle" %>
+      <% end %>
+    <% end %>
+  </h1>
 <% else %>
   <h1>Claimed by <%= @user.name %></h1>
 <% end %>

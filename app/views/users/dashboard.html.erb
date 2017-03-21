@@ -8,7 +8,13 @@
 </div>
 
 <% if current_user.is_provider? %>
-  <h2>My listings</h2>
+  <h2>My listings
+    <% if current_user.is_provider? %>
+      <%= link_to new_listing_path do %>
+        <%= fa_icon "plus-circle" %>
+      <% end %>
+    <% end %>
+  </h2>
 <% else %>
   <h2>My claimed listings</h2>
 <% end %>
